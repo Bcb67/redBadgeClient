@@ -1,0 +1,13 @@
+.Sign-up{
+    margin-right: 25em;
+    margin-left: 25em;
+    /* border: dashed red; */
+    text-align: center;
+    box-shadow: 0 0 1em black;
+}
+ol{
+    list-style: none;
+}
+li{
+    margin: 0px 0px 1em 0;
+}
