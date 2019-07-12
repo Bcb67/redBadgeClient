@@ -8,11 +8,13 @@ import { MatCardModule } from '@angular/material/card';
 import { SingupLoginComponent } from './singup-login/singup-login.component'
 import { MatGridListModule} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StockFetchComponent } from './stock-fetch/stock-fetch.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SingupLoginComponent
+    SingupLoginComponent,
+    StockFetchComponent
   ],
   imports: [
     BrowserModule,
