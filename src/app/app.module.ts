@@ -9,6 +9,8 @@ import { SingupLoginComponent } from './singup-login/singup-login.component'
 import { MatGridListModule} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StockFetchComponent } from './stock-fetch/stock-fetch.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { StockFetchComponent } from './stock-fetch/stock-fetch.component';
     MatButtonModule,
     MatCardModule,
     MatGridListModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
