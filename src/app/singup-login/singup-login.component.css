@@ -11,3 +11,7 @@ ol{
 li{
     margin: 0px 0px 1em 0;
 }
+#tglBtn {
+    text-align: right;
+    margin-right: 20px;
+}
