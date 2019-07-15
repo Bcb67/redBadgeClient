@@ -8,11 +8,13 @@ import { MatCardModule } from '@angular/material/card';
 import { SingupLoginComponent } from './singup-login/singup-login.component'
 import { MatGridListModule} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { NavbarComponent } from './navbar/navbar.component';
 @NgModule({
   declarations: [
     AppComponent,
-    SingupLoginComponent
+    SingupLoginComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +23,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatButtonModule,
     MatCardModule,
     MatGridListModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
