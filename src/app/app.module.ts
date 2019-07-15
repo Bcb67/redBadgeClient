@@ -5,10 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { SingupLoginComponent } from './singup-login/singup-login.component'
 import { MatGridListModule} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { SignupComponent } from './signup/signup.component'
 import { StockFetchComponent } from './stock-fetch/stock-fetch.component';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -16,13 +15,15 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { NavbarComponent } from './navbar/navbar.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SingupLoginComponent,
-    StockFetchComponent
-    NavbarComponent
+    StockFetchComponent,
+    NavbarComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +33,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     MatCardModule,
     MatGridListModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
     MatButtonToggleModule
   ],
   providers: [],
