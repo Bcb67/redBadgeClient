@@ -5,26 +5,35 @@ import { DatabaseService } from '../stock-fetch.service'
 @Component({
   selector: 'app-stock-fetch',
   templateUrl: './stock-fetch.component.html',
-  styleUrls: ['./stock-fetch.component.css']
+  styleUrls: ['./stock-fetch.component.css'],
 })
 export class StockFetchComponent implements OnInit {
 
-  stock = {};
-  // url = 'http://alphavantage.co/query?function=GLOBAL_QUOTE&symbol=AAPL&apikey=81A9SMJUX2B387P9'
-
+  // stock = {};
+  // symbols = {};
+  baseurl = 'https://min-api.cryptocompare.com/data/pricemulti?fsyms='
+  // BTC,ETH&tsyms=USD,EUR'
+  names: any;
+  url: any;
+  display: any;
 
   constructor(
-    // private http: HttpClient,
+    private http: HttpClient,
     private dbService: DatabaseService,
   ) { }
 
-  buttonThing() {
-    this.dbService.getStocks().subscribe((data: any) => { console.log(data) })
-    console.log(this.stock)
+  buttonThing(input) {
+    // console.log('names: ', this.names)
+    this.url = this.baseurl + input + '&tsyms=USD'
+    this.http.get(this.url).subscribe((dat: any) => {this.display = dat; console.log(this.display)})
+    
   }
 
   ngOnInit() {
-    this.dbService.getStocks().subscribe((data: any) => { console.log(data) })
+    this.names = this.dbService.getNames()
+    // this.dbService.coinlist().subscribe((data: any) => { console.log(data) })
+    // this.url = this.baseurl + this.names + '&tsyms=USD'
+    // this.http.get(this.url).subscribe((dat: any) => {console.log(dat)})
     // console.log(this.stock)
   }
 
