@@ -22,6 +22,21 @@ export class DatabaseService {
 
   constructor(private http: HttpClient) { }
 
+  baseurl = 'https://min-api.cryptocompare.com/data/pricemulti?fsyms='
+  // BTC,ETH&tsyms=USD,EUR'
+ 
+  url: any;
+  display: any;
+  portSyms = [];
+  portQuan = [];
+  symPrice = [];
+
+  fetchSymbolInfo(input) {
+    // console.log('names: ', this.names)
+    this.url = this.baseurl + input + '&tsyms=USD'
+    this.http.get(this.url).subscribe((dat: any) => {this.display = dat; console.log('display:', this.display)})
+    return this.display
+  }
   private symbolnameData: any = {
     'Bitcoin': 'BTC',
     'Ethereum': 'ETH',
@@ -85,12 +100,25 @@ export class DatabaseService {
     'Gas': 'GAS'
   };
   
-  getNames() {
+  getSymbolNames() {
     for (let name in this.symbolnameData) {
       this.symbols.push(this.symbolnameData[name])
     }
     // console.log(this.symbols)
     return this.symbols
+  }
+
+  getPortfolioValues(input) {
+    console.log(input)
+    for (let item in input) {
+      this.portSyms.push(item)
+      this.symPrice.push(input[item].USD)
+    }
+    
+    console.log(this.portSyms)
+    console.log(this.symPrice)
+    // console.log(this.portSyms)
+    // return this.portSyms
   }
 
   // coinlist(): Observable<coinModel[]> {
