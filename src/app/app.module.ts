@@ -21,7 +21,7 @@ import { NavbarComponent } from './navbar/navbar.component';
   declarations: [
     AppComponent,
     SingupLoginComponent,
-    StockFetchComponent
+    StockFetchComponent,
     NavbarComponent
   ],
   imports: [
@@ -32,7 +32,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     MatCardModule,
     MatGridListModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
     MatButtonToggleModule
   ],
   providers: [],
