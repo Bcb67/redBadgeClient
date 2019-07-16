@@ -1,4 +1,6 @@
 <!-- <p>{{ stock[0] }}</p> -->
 <button (click)="buttonThing()">console.log the stock</button>
 
-<div>{{symbols}}</div>
+<ol>
+    <li *ngFor="let item of names">{{item}}</li>
+</ol>

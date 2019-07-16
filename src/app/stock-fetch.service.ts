@@ -17,52 +17,84 @@ export class DatabaseService {
 
   // private dbUrl = 'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=CLAM,WTT&to_currency=USD&apikey=81A9SMJUX2B387P9';
   // apiKey = '81A9SMJUX2B387P9'
-  data = {}
+  // data = {}
+  symbols = [];
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  coinlist(): Observable<coinModel[]> {
-    return this.httpClient
-      .get('https://min-api.cryptocompare.com/data/all/coinlist')
-      .pipe(
-        map(x => this.convertKeysToKebabCase(x)),
-        filter(
-          (x: Stocks) => x.response.toLowerCase() === 'success'
-        ),
-        map(x =>
-          Object.values(x.data)
-            .filter(y => y.sortOrder <= 100)
-            // sort list
-            .sort((a, b) => a.sortOrder - b.sortOrder)
-            .map(y => {
-              y.imageUrl = x.baseImageUrl + y.imageUrl;
-              return y;
-            })
-        )
-      );
-  }
-
-  private convertKeysToKebabCase(obj) {
-    const output = {};
-    for (const i in obj) {
-      if (Object.prototype.toString.apply(obj[i]) === '[object Object]') {
-        output[
-          i.substr(0, 1).toLowerCase() + i.substr(1)
-        ] = this.convertKeysToKebabCase(obj[i]);
-      } else if (Object.prototype.toString.apply(obj[i]) === '[object Array]') {
-        output[i.substr(0, 1).toLowerCase() + i.substr(1)] = [];
-        output[i.substr(0, 1).toLowerCase() + i.substr(1)].push(
-          this.convertKeysToKebabCase(obj[i][0])
-        );
-      } else {
-        output[i.substr(0, 1).toLowerCase() + i.substr(1)] = obj[i];
-      }
+  private symbolnameData: any = {
+    'Bitcoin': 'BTC',
+    'Ethereum': 'ETH',
+    'Ripple': 'XRP',
+    'Bitcoin Cash': 'BCH',
+    'Litecoin': 'LTC',
+    'Cardano': 'ADA',
+    'NEO': 'NEO',
+    'Stellar': 'XLM',
+    'Monero': 'XMR',
+    'EOS': 'EOS',
+    'IOTA': 'IOT',
+    'Dash': 'DASH',
+    'NEM': 'XEM',
+    'TRON': 'TRX',
+    'Eth Classic': 'ETC',
+    'Tether': 'USDT',
+    'VeChain': 'VEN',
+    'Qtum': 'QTUM',
+    'Nano': 'XRB',
+    'Lisk': 'LSK',
+    'Bitcoin Gold': 'BTG',
+    'OmiseGo': 'OMG',
+    'ICON': 'ICX',
+    'Zcash': 'ZEC',
+    'Digix DAO': 'DGD',
+    'Binance Coin': 'BNB',
+    'Steem': 'STEEM',
+    'Verge': 'XVG',
+    'Stratis': 'STRAT',
+    'Populous': 'PPT',
+    'ByteCoin': 'BCN',
+    'Waves': 'WAVES',
+    'Siacoin': 'SC',
+    'Status': 'SNT',
+    'RChain': 'RHOC',
+    'Maker': 'MKR',
+    'DogeCoin': 'DOGE',
+    'Bitshares': 'BTS',
+    'Decred': 'DCR',
+    'Aeternity': 'AE',
+    'Waltonchain': 'WTC',
+    'Augur': 'REP',
+    'Electroneum': 'ETN',
+    '0x': 'ZRX',
+    'Komodo': 'KMD',
+    'Bytom': 'BTM',
+    'ARK': 'ARK',
+    'Veritaseum': 'VERI',
+    'Ardor': 'ARDR',
+    'Golem': 'GNT',
+    'Dragonchain': 'DRGN',
+    'Hshare': 'HSR',
+    'BAT': 'BAT',
+    'Cryptonex': 'CNX',
+    'SysCoin': 'SYS',
+    'Zilliqa': 'ZIL',
+    'KuCoin': 'KCS',
+    'DigiByte': 'DGB',
+    'Ethos': 'BQX',
+    'Gas': 'GAS'
+  };
+  
+  getNames() {
+    for (let name in this.symbolnameData) {
+      this.symbols.push(this.symbolnameData[name])
     }
-    return output;
-
-    // getAllStocks(): Observable<Stocks[]>{
-    //   return this.http.get<Stocks[]>(this.allUrl)
-    // }
-
+    // console.log(this.symbols)
+    return this.symbols
   }
+
+  // coinlist(): Observable<coinModel[]> {
+  //   return this.http.get<coinModel[]>(this.allUrl)
+  // }
+
 }
