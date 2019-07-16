@@ -1,15 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { DatabaseService } from '../stock-fetch.service';
 
 @Component({
-  selector: 'app-account',
+  selector: 'app-root',
   templateUrl: './account.component.html',
   styleUrls: ['./account.component.css']
 })
-export class AccountComponent implements OnInit {
+export class AccountComponent {
+  objectKeys = Object.keys;
+  cryptos: any;
 
-  constructor() { }
+  constructor(private _data: DatabaseService) {
+
+  }
 
   ngOnInit() {
+    this._data.getStocks()
+      .subscribe(res => {
+        this.cryptos = res;
+        console.log(res);
+      });
   }
 
 }

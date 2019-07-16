@@ -10,6 +10,14 @@ import { MatGridListModule} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AccountComponent } from './account/account.component';
 
+import { StockFetchComponent } from './stock-fetch/stock-fetch.component';
+import { HttpClientModule } from '@angular/common/http';
+
+
+
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { NavbarComponent } from './navbar/navbar.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +31,9 @@ import { AccountComponent } from './account/account.component';
     MatButtonModule,
     MatCardModule,
     MatGridListModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
