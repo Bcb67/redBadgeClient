@@ -7,15 +7,16 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SignupComponent } from './signup/signup.component'
+
 import { StockFetchComponent } from './stock-fetch/stock-fetch.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import { ReactiveFormsModule } from '@angular/forms'
 
 
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
+import { SignuppComponent } from './signupp/signupp.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { LoginComponent } from './login/login.component';
     StockFetchComponent,
     NavbarComponent,
     LoginComponent,
-    SignupComponent
+    SignuppComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +35,8 @@ import { LoginComponent } from './login/login.component';
     MatGridListModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

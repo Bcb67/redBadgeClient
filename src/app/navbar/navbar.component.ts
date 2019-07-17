@@ -7,9 +7,7 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-// toggle(input){
-//   this.auth.toggle(input)
-// }
+
  constructor() { }
 
   ngOnInit() {
