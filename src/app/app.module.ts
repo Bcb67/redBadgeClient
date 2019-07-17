@@ -15,6 +15,8 @@ import { ReactiveFormsModule } from '@angular/forms'
 
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { NavbarComponent } from './navbar/navbar.component';
+import { LoginComponent } from './login/login.component';
+import { SignuppComponent } from './signupp/signupp.component';
 
 @NgModule({
  declarations: [
@@ -36,5 +38,26 @@ import { NavbarComponent } from './navbar/navbar.component';
  ],
  providers: [],
  bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    StockFetchComponent,
+    NavbarComponent,
+    LoginComponent,
+    SignuppComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatCardModule,
+    MatGridListModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    MatButtonToggleModule,
+    ReactiveFormsModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

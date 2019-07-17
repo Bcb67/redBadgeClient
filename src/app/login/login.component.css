@@ -1,0 +1,12 @@
+.Login{
+    margin-left: 450px;
+    margin-right: 450px;
+    text-align: center;
+    box-shadow: black;
+}
+ol{
+    list-style: none
+}
+li{
+    margin-top: 2em;
+}
