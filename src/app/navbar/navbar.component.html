@@ -1,16 +1,14 @@
 <div style="text-align:center">
-        <mat-toolbar class="navbar">
-          <button mat-icon-button>Logo Design Here</button>
-          <span class="filler">
-            <h1>
-              Welcome to redBadgeClient
-            </h1>
-          </span>
-          <div id="tglBtn">
-            <mat-button-toggle-group (click)= "toggle()" name="lstoggle">
-              <mat-button-toggle value="Login">Login</mat-button-toggle>
-              <mat-button-toggle value="Sign-up">Sign-up</mat-button-toggle>
-            </mat-button-toggle-group>
-          </div>
-        </mat-toolbar>
-      </div>
+  <mat-toolbar class="navbar">
+    <a routerLink = "/" button mat-icon-button>Landing Page</a>
+    <span class="filler">
+      <h1>
+        Welcome to redBadgeClient
+      </h1>
+    </span>
+    <div id="tglBtn">
+        <a routerLink = "/login">Login</a>
+        <a routerLink = "/signup">Sign-up</a>
+    </div>
+  </mat-toolbar>
+</div>
