@@ -1,7 +1,20 @@
 <!-- <p>{{ stock[0] }}</p> -->
 <button (click)="buttonThing()">console.log the stock</button>
 
-<ol>
-    <!-- <li *ngFor="let item of names">{{item}}</li> -->
-    <!-- <li *ngFor="let item of display">{{item}}</li> -->
-</ol>
+<!-- <ol>
+    <li *ngFor="let item of names">{{item}}</li>
+    <li *ngFor="let item of display2">{{item}}</li>
+</ol> -->
+<table *ngIf="click === true">
+    <tr>
+        <th>Crypto Name</th>
+        <th>Crypto Symbol</th>
+        <th>Price per Crypto</th>
+    </tr>
+    <tr *ngFor='let item of names; let i = index' >
+        <td>{{coins[i]}}</td>
+        <td>{{item}}</td>
+        <td>{{prices[i]}}</td>
+        <!-- <td>{{display2[i]}}</td> -->
+    </tr>
+</table>
