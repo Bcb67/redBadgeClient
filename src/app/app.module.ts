@@ -19,6 +19,25 @@ import { LoginComponent } from './login/login.component';
 import { SignuppComponent } from './signupp/signupp.component';
 
 @NgModule({
+ declarations: [
+   AppComponent,
+   StockFetchComponent,
+   NavbarComponent,
+ ],
+ imports: [
+   BrowserModule,
+   AppRoutingModule,
+   MatToolbarModule,
+   MatButtonModule,
+   MatCardModule,
+   MatGridListModule,
+   BrowserAnimationsModule,
+   HttpClientModule,
+   MatButtonToggleModule,
+   ReactiveFormsModule
+ ],
+ providers: [],
+ bootstrap: [AppComponent]
   declarations: [
     AppComponent,
     StockFetchComponent,
