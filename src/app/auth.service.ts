@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { User } from './models/UserModel';
 import { Login } from './models/LoginModel';
+// import { JwtHelperService } from '@auth0/angular-jwt';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json'
@@ -40,4 +41,8 @@ export class AuthService {
    loginUser (login: Login): Observable<User> {
      return this.http.post<User>(this.loginURL, login, httpOptions)
    }
+  //  public isAuthenticated(): boolean {
+  //    const token = localStorage.getItem('token');
+  //    return !this.jwtHelper.isTokenExpired(token);
+  //  } 
 }
