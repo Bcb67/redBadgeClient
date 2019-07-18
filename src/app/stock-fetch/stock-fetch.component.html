@@ -5,17 +5,22 @@
     <li *ngFor="let item of names">{{item}}</li>
     <li *ngFor="let item of display2">{{item}}</li>
 </ol> -->
-<div id="centerpls" *ngIf="click === true">
-        <mat-card *ngFor='let item of names; let i = index'>
-                <mat-card-title>
-                    <h1>{{coins[i]}}</h1>
-                </mat-card-title>
-                <mat-card-content>
-                    <h4>{{item}}</h4>
-                    <h4>${{prices[i]}}</h4>
-                </mat-card-content>
-        </mat-card>
+<div *ngIf="click === true">
+    
+    <app-crypto-table></app-crypto-table>
+        <!-- <mat-card id="centerpls" *ngFor='let item of names; let i = index'>
+            <mat-card-title>
+                <h1>{{coins[i]}}</h1>
+            </mat-card-title>
+            <mat-card-content>
+                <h4>{{item}}</h4>
+                <h4>${{prices[i]}}</h4>
+            </mat-card-content>
+        </mat-card> -->
+        <!-- <mat-paginator [length]="names.length" [pageSize]="10" [pageSizeOptions]="[6, 10]" (page)="onPageChange($event)"></mat-paginator> -->
+
 </div>
+
 <!--         
 <table >
     <tr *ngFor='let item of names; let i = index' >
