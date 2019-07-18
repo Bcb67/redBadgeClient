@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
+import { FormGroup } from '@angular/forms'
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +9,7 @@ import { AuthService } from '../auth.service';
 })
 export class NavbarComponent implements OnInit {
 
- constructor() { }
+ constructor(private authservice: AuthService) { }
 
   ngOnInit() {
   }

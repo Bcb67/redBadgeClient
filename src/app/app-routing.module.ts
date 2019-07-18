@@ -7,7 +7,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 export const routes: Routes = [
   {path: "login", component: LoginComponent},
   {path: "signup", component: SignuppComponent},
-  // {path: "/", component: NavbarComponent, canActivate: [AuthGuard]}
+  {path: "", component: NavbarComponent, canActivate: [AuthGuard]}
+  // {path: "portfolio", component: PortfolioComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

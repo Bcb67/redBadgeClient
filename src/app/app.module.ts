@@ -14,13 +14,16 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { SignuppComponent } from './signupp/signupp.component';
 import { ReactiveFormsModule } from '@angular/forms'
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { AuthGuardService} from './auth-guard.service';
+import { AuthService } from './auth.service';
 @NgModule({
   declarations: [
     AppComponent,
     StockFetchComponent,
     NavbarComponent,
     LoginComponent,
-    SignuppComponent
+    SignuppComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,7 @@ import { ReactiveFormsModule } from '@angular/forms'
     MatButtonToggleModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ AuthGuardService, AuthService, JwtHelperService,{provide:JWT_OPTIONS,useValue:JWT_OPTIONS}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
