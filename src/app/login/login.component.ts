@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { AuthService } from '../auth.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -18,6 +19,7 @@ export class LoginComponent implements OnInit {
   }
   onSubmit() {
     let login = {user:{ username: this.loginForm.value.username, password: this.loginForm.value.password }}
+<<<<<<< HEAD
     this.authservice.loginUser(login).subscribe(data => localStorage.setItem('token',data.sessionToken))
     
     if(true){
@@ -28,8 +30,16 @@ export class LoginComponent implements OnInit {
       alert('you failed.. idiot!!!')
     }
     // console.log(login)
+=======
+    this.authservice.loginUser(login).subscribe(data => {localStorage.setItem('token',data.sessionToken);this.goProfile()})
+>>>>>>> bfc27d7a8cd0558d738f275066b28f09b842b2c8
+  }
+  goProfile() {
+    if(localStorage.getItem('token')){
+      alert('YOU LOGGED IN');
+
+    }else if(!localStorage.getItem('token')) {
+      alert('WRONG CREDENTIALS CUZ')
+    }
   }
 }
-// localStorage.setItem ('token', data.sessionToken
-
-
