@@ -15,6 +15,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { SignuppComponent } from './signupp/signupp.component';
+import {MatInputModule} from '@angular/material/input';
 
 import { CryptoTableComponent } from './crypto-table/crypto-table.component';
 
@@ -40,6 +41,7 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,
+    MatInputModule,
     MatGridListModule,
     BrowserAnimationsModule,
     HttpClientModule,

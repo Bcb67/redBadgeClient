@@ -1,8 +1,9 @@
 .Login{
-    margin-left: 450px;
-    margin-right: 450px;
+    margin: 2em auto;
+    width: 80%;
+    height: 80%;
     text-align: center;
-    box-shadow: black;
+    /* box-shadow: black; */
 }
 ol{
     list-style: none
