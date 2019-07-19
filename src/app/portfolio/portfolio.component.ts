@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router'
 @Component({
   selector: 'app-portfolio',
   templateUrl: './portfolio.component.html',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PortfolioComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authservice: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
