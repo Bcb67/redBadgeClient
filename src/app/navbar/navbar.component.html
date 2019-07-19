@@ -1,6 +1,7 @@
 <div style="text-align:center">
+  <!-- <form [formGroup] = 'navbar'> -->
   <mat-toolbar class="navbar">
-    <a routerLink = "/" button mat-icon-button>Landing Page</a>
+    <a routerLink = ""  (ngSubmit) = "logout()" button mat-icon-button>Landing Page/Logout</a>
     <span class="filler">
       <h1>
         Welcome to redBadgeClient
@@ -11,4 +12,5 @@
         <a routerLink = "/signup">Sign-up</a>
     </div>
   </mat-toolbar>
+<!-- </form> -->
 </div>
