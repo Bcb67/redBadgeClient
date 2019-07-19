@@ -24,7 +24,7 @@ export class SignuppComponent implements OnInit {
   onSubmit() {
     let user = {user:{ username: this.signupForm.value.username, fName: this.signupForm.value.fName, lName: this.signupForm.value.lName, email: this.signupForm.value.email, password: this.signupForm.value.password }}
     this.authservice.addUser(user).subscribe(data =>
-    localStorage.setItem('token', data.sessionToken))
+      localStorage.setItem('token', data.sessionToken))
     console.log(user)
   }
 }

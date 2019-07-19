@@ -19,8 +19,15 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     let login = {user:{ username: this.loginForm.value.username, password: this.loginForm.value.password }}
     this.authservice.loginUser(login).subscribe(data => localStorage.setItem('token',data.sessionToken))
-    alert('you are logged in!!')
-    console.log(login)
+    
+    if(true){
+      alert('you are logged in!!')
+
+    }
+    else {
+      alert('you failed.. idiot!!!')
+    }
+    // console.log(login)
   }
 }
 // localStorage.setItem ('token', data.sessionToken

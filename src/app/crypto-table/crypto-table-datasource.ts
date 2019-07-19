@@ -32,7 +32,7 @@ export class CryptoTableDataSource extends DataSource<CryptoTableItem> {
   
   constructor(private dbService: DatabaseService) {
     super();
-    // this.data = this.dbService.getObject()
+    // console.log(this.data = this.dbService.getObject())
   }
   
   
