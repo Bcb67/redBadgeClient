@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewChildren } from '@angular/core';
 // import { HttpClient } from '@angular/common/http';
-import { DatabaseService } from '../stock-fetch.service'
+import { DatabaseService } from '../stock-fetch.service';
 
 @Component({
   selector: 'app-stock-fetch',
@@ -8,10 +8,7 @@ import { DatabaseService } from '../stock-fetch.service'
   styleUrls: ['./stock-fetch.component.css'],
 })
 export class StockFetchComponent implements OnInit {
-
-  // stock = {};
-  // symbols = {};
-  // BTC,ETH&tsyms=USD,EUR'
+  
   names= [];
   display: any;
   display2: any;
@@ -82,17 +79,16 @@ export class StockFetchComponent implements OnInit {
   // };
 
   constructor(
-    // private http: HttpClient,
     private dbService: DatabaseService,
   ) { }
 
   buttonThing() {
-    // console.log('names: ', this.names)
     this.display = this.dbService.fetchSymbolInfo(this.names)
     this.display2 = this.dbService.getPortfolioValues(this.display)
     this.prices = this.dbService.symPrice
     this.coins = this.dbService.getCoinNames()
     this.click=true
+    // this.dbService.getdbObject()
     return this.display2
   }
 
@@ -101,14 +97,6 @@ export class StockFetchComponent implements OnInit {
     this.display = this.dbService.fetchSymbolInfo(this.names)
     this.display2 = this.dbService.getPortfolioValues(this.display)
     this.coins = this.dbService.getCoinNames()
-    // this.dbService.coinlist().subscribe((data: any) => { console.log(data) })
-    // this.url = this.baseurl + this.names + '&tsyms=USD'
-    // this.http.get(this.url).subscribe((dat: any) => {console.log(dat)})
-    // console.log(this.stock)
   }
 
 }
-
-//     (data: any) => {
-//       this.ship = data.results[0]
-//     }

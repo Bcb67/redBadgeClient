@@ -31,6 +31,7 @@ export class DatabaseService {
   portQuan = [];
   symPrice = [];
   coins = [];
+  retVal = [];
 
   fetchSymbolInfo(input) {
     // console.log('names: ', this.names)
@@ -118,15 +119,31 @@ export class DatabaseService {
     return this.symbols
   }
 
+  getObject() {
+    
+    for(let i = 0; i < this.portSyms.length; i++) {
+      this.retVal.push({name: this.coins[i], symbol: this.portSyms[i], price: this.symPrice[i]})
+    }
+    console.log(this.retVal)
+    return this.retVal;
+  }
+
   getPortfolioValues(input) {
     console.log(input)
     for (let item in input) {
       this.portSyms.push(item)
       this.symPrice.push(input[item].USD)
     }
-    
-    console.log('portSyms:',this.portSyms)
-    console.log('symPrice:',this.symPrice)
+    console.log({
+      portSyms: this.portSyms,
+      symPrice: this.symPrice
+    })
+    return {
+      portSyms: this.portSyms,
+      symPrice: this.symPrice
+    }
+    // console.log('portSyms:',this.portSyms)
+    // console.log('symPrice:',this.symPrice)
     // console.log(this.portSyms)
     // return this.portSyms
   }

@@ -4,13 +4,13 @@
 
 mat-card {
     width: 20vw;
-    margin:1.5vw;
+    margin:1em;
     display: inline-block;
     background-image: url('../../assets/boybg.png');
     background-position-x: 50%;
     background-position-y: 25%
 }
 
-#cetnerpls { 
+#centerpls { 
     text-align: center
 }
