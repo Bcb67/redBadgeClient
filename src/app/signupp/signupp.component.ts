@@ -20,13 +20,12 @@ export class SignuppComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  
   onSubmit() {
     let user = {user:{ username: this.signupForm.value.username, fName: this.signupForm.value.fName, lName: this.signupForm.value.lName, email: this.signupForm.value.email, password: this.signupForm.value.password }}
     this.authservice.addUser(user).subscribe(data =>
-    localStorage.setItem('token', data.sessionToken))
-    alert('Created New User!')
-    console.log(user)
-  }
-  
-}
+      localStorage.setItem('token', data.sessionToken))
+      alert('Created New User!')
+      console.log(user)
+    }
+   }

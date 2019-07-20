@@ -6,4 +6,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'redBadgeClient';
+
+  ngOnInit() {
+    localStorage.setItem("token", '')
+  }
 }
