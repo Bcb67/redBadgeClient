@@ -1,7 +1,9 @@
 .Signup{
-    margin-right: 450px;
-    margin-left: 450px;
+    margin: 1em auto;
+    width: 75%;
+    height: 80%;
     text-align: center;
+    /* box-shadow: black; */
 }
 ol{
     list-style: none;

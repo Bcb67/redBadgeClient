@@ -22,10 +22,10 @@ export class CryptoTableComponent implements AfterViewInit, OnInit {
   displayedColumns = ['name', 'symbol', 'price'];
 
   ngOnInit() {
-    this.dbService.getObject()
-    let con = '';
-    console.log(con)
-    this.dataSource = new CryptoTableDataSource();
+    // this.dbService.getObject()
+    // let con = '';
+    // console.log(con)
+    this.dataSource = new CryptoTableDataSource(this.dbService);
   }
 
   ngAfterViewInit() {

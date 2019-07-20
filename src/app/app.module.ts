@@ -15,6 +15,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { SignuppComponent } from './signupp/signupp.component';
+import {MatInputModule} from '@angular/material/input';
 
 import { CryptoTableComponent } from './crypto-table/crypto-table.component';
 
@@ -22,6 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms'
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { AuthGuardService} from './auth-guard.service';
 import { AuthService } from './auth.service';
+import { PortfolioComponent } from './portfolio/portfolio.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { AuthService } from './auth.service';
     NavbarComponent,
     LoginComponent,
     SignuppComponent,
-    CryptoTableComponent
+    CryptoTableComponent,
+    PortfolioComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +41,7 @@ import { AuthService } from './auth.service';
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,
+    MatInputModule,
     MatGridListModule,
     BrowserAnimationsModule,
     HttpClientModule,

@@ -1,15 +1,15 @@
 <div style="text-align:center">
   <!-- <form [formGroup] = 'navbar'> -->
   <mat-toolbar class="navbar">
-    <a routerLink = ""  (ngSubmit) = "logout()" button mat-icon-button>Landing Page/Logout</a>
+    <a id="logBtn" routerLink = ""  (click) = "logout()" button mat-icon-button><img alt="icon" src="../../assets/iconforthing.png" id="navIcon"></a>
     <span class="filler">
       <h1>
-        Welcome to redBadgeClient
+        Cryptonomics
       </h1>
     </span>
     <div id="tglBtn">
-        <a routerLink = "/login">Login</a>
-        <a routerLink = "/signup">Sign-up</a>
+        <a class="routeButton" routerLink = "/login">Login</a>
+        <a class="routeButton" routerLink = "/signup">Sign-up</a>
     </div>
   </mat-toolbar>
 <!-- </form> -->

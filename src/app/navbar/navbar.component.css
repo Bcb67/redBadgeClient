@@ -1,9 +1,34 @@
 .filler {
     flex: auto;
 }
-h1{
+/* h1{
     width: auto;
+} */
+#navIcon {
+    width: 100%;
+    border-radius: 25%
 }
-#logBtn {
-    margin-right: 40px;
+
+@media only screen and (max-width:600px) {
+    .routeButton {
+        font-size: .75em;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    h1 {
+        font-size: 1em
+    }
+    .routeButton {
+        font-size: 1em
+    }
+}
+
+@media only screen and (min-width: 993px) {
+    h1 {
+        font-size: 1.25em;
+    }
+    .routeButton {
+        font-size: 1.25em
+    }
 }
