@@ -8,7 +8,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule, MatTableModule, MatSortModule} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule } from '@angular/material/paginator';
-
+import { NgxSpinnerModule } from "ngx-spinner";
 import { StockFetchComponent } from './stock-fetch/stock-fetch.component';
 import { HttpClientModule } from '@angular/common/http'
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
@@ -51,7 +51,8 @@ import { LandingComponent } from './landing/landing.component';
     ReactiveFormsModule,
     MatPaginatorModule,
     MatTableModule,
-    MatSortModule
+    MatSortModule,
+    NgxSpinnerModule
   ],
   providers: [ AuthGuardService, AuthService, JwtHelperService,{provide:JWT_OPTIONS,useValue:JWT_OPTIONS}],
   bootstrap: [AppComponent]

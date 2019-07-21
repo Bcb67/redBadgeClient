@@ -1,12 +1,12 @@
 <!-- <p>{{ stock[0] }}</p> -->
-<button (click)="buttonThing()">console.log the stock</button>
+<!-- <button (click)="buttonThing()">console.log the stock</button> -->
 
 <!-- <ol>
     <li *ngFor="let item of names">{{item}}</li>
     <li *ngFor="let item of display2">{{item}}</li>
 </ol> -->
 <div *ngIf="click === true">
-    <mat-card id="centerpls" *ngFor='let item of names; let i = index'>
+    <!-- <mat-card id="centerpls" *ngFor='let item of names; let i = index'>
         <mat-card-title>
             <h1>{{coins[i]}}</h1>
         </mat-card-title>
@@ -14,6 +14,8 @@
             <h4>{{item}}</h4>
             <h4>${{prices[i]}}</h4>
         </mat-card-content>
-    </mat-card>
-    <!-- <app-crypto-table></app-crypto-table> -->
+    </mat-card> -->
+    <ngx-spinner></ngx-spinner>
+    
+    <app-crypto-table></app-crypto-table>
 </div>
