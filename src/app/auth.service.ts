@@ -18,6 +18,7 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router, public jwtHelper: JwtHelperService) { }
 
+  suli = true;
   signuppURL = 'http://localhost:4000/user/signup'
   loginURL = 'http://localhost:4000/user/signin'
   landingURL = 'http://localhost:4000'

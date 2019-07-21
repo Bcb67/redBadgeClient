@@ -33,6 +33,8 @@ export class DatabaseService {
   coins = [];
   retVal = [];
 
+  dailyData: any;
+
   fetchSymbolInfo(input) {
     // console.log('names: ', this.names)
     this.url = this.baseurl + input + '&tsyms=USD'
@@ -126,6 +128,16 @@ export class DatabaseService {
     }
     console.log(this.retVal)
     return this.retVal;
+  }
+
+  getTop24hr() {
+    // let top24hr = {};
+    this.http.get('https://min-api.cryptocompare.com/data/top/totalvolfull?limit=10&tsym=USD').subscribe(data => {
+      console.log('fetchService',data.Data);
+      this.dailyData = data.Data;
+      return true;
+    })
+    // console.log(top24hr);
   }
 
   getPortfolioValues(input) {

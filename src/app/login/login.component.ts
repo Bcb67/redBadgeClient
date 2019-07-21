@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   constructor(private authservice: AuthService) { }
 
   ngOnInit() {
+    // this.authservice.suli = false;
   }
   onSubmit() {
     let login = {user:{ username: this.loginForm.value.username, password: this.loginForm.value.password }}
