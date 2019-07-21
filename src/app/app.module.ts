@@ -24,6 +24,7 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { AuthGuardService} from './auth-guard.service';
 import { AuthService } from './auth.service';
 import { PortfolioComponent } from './portfolio/portfolio.component';
+import { LandingComponent } from './landing/landing.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
     LoginComponent,
     SignuppComponent,
     CryptoTableComponent,
-    PortfolioComponent
+    PortfolioComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,

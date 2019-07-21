@@ -19,6 +19,7 @@ export class SignuppComponent implements OnInit {
   constructor(private authservice: AuthService) { }
 
   ngOnInit() {
+    // this.authservice.suli = true;
   }
   
   onSubmit() {

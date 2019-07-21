@@ -9,11 +9,17 @@ import { FormGroup } from '@angular/forms'
 })
 export class NavbarComponent implements OnInit {
 
- constructor(private authservice: AuthService) { }
+  val = this.authservice.suli;
+  constructor(private authservice: AuthService) { }
 
   ngOnInit() {
+    this.val = this.authservice.suli;
   }
   logout() {
     localStorage.removeItem('token');
+  }
+  buttonTest() {
+    this.val = !this.authservice.suli;
+    this.authservice.suli = this.val;
   }
 }

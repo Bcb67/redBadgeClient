@@ -18,20 +18,22 @@ export class DatabaseService {
   // private dbUrl = 'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=CLAM,WTT&to_currency=USD&apikey=81A9SMJUX2B387P9';
   // apiKey = '81A9SMJUX2B387P9'
   // data = {}
-  symbols = [];
-
+  
   constructor(private http: HttpClient) { }
-
+  
   baseurl = 'https://min-api.cryptocompare.com/data/pricemulti?fsyms='
   // BTC,ETH&tsyms=USD,EUR'
- 
+  
   url: any;
   display: any;
   portSyms = [];
   portQuan = [];
   symPrice = [];
+  symbols = [];
   coins = [];
   retVal = [];
+
+  dailyData: any;
 
   fetchSymbolInfo(input) {
     // console.log('names: ', this.names)
@@ -126,6 +128,16 @@ export class DatabaseService {
     }
     console.log(this.retVal)
     return this.retVal;
+  }
+
+  getTop24hr() {
+    // let top24hr = {};
+    this.http.get('https://min-api.cryptocompare.com/data/top/totalvolfull?limit=10&tsym=USD').subscribe(data => {
+      // console.log('fetchService',data.Data);
+      // this.dailyData = data.Data;
+      return true;
+    })
+    // console.log(top24hr);
   }
 
   getPortfolioValues(input) {
