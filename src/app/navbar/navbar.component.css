@@ -6,24 +6,24 @@
 } */
 
 .routeButton {
-    background-color: rgba(234, 224, 213, .75);
     color: #160C28;
     text-decoration: none;
     padding: .25em;
     border-radius: .25em;
+    border: 1px solid #272727;
 }
 
 .navbar {
     text-align: center;
     /* background-color: #55917f; GREEN 2 */
-    background-color: #84C318;
+    background-color: #EFF1F3;
     /* background-color: #F865B0; PINK*/
     /* background-color: #A42CD6;  purple color*/
     box-shadow: 0 0 5px black;
 }
 #navIcon {
     width: 100%;
-    border-radius: 25%
+    border-radius: 25%;
 }
 
 @media only screen and (max-width:600px) {
@@ -34,13 +34,13 @@
 
 @media only screen and (max-width: 992px) {
     .routeButton {
-        font-size: 1em
+        font-size: 1em;
     }
 }
 
 @media only screen and (min-width: 993px) {
     .routeButton {
-        font-size: 1.25em
+        font-size: 1.25em;
     }
 }
 
