@@ -16,6 +16,9 @@ export class CryptoTableComponent implements AfterViewInit, OnInit {
   dataSource: CryptoTableDataSource;
   tableInfo: any;
 
+  // applyFilter(filterValue: string) {
+  //   this.dataSource.filter = filterValue.trim().toLowerCase();
+  // }
 
   constructor(public dbService: DatabaseService) {}
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */

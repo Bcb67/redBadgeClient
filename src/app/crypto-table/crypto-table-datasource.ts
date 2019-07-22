@@ -84,8 +84,8 @@ export class CryptoTableDataSource extends DataSource<CryptoTableItem> {
       const isAsc = this.sort.direction === 'asc';
       switch (this.sort.active) {
         case 'name': return compare(a.name, b.name, isAsc);
-        case 'id': return compare(+a.symbol, +b.symbol, isAsc);
-        case 'id': return compare(+a.price, +b.price, isAsc);
+        case 'symbol': return compare(+a.symbol, +b.symbol, isAsc);
+        case 'price': return compare(+a.price, +b.price, isAsc);
         default: return 0;
       }
     });
