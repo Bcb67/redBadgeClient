@@ -19,9 +19,9 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router, public jwtHelper: JwtHelperService) { }
 
   suli = true;
-  signuppURL = 'http://localhost:4000/user/signup'
-  loginURL = 'http://localhost:4000/user/signin'
-  landingURL = 'http://localhost:4000'
+  signuppURL = 'http://localhost:3000/user/signup'
+  loginURL = 'http://localhost:3000/user/signin'
+  landingURL = 'http://localhost:3000'
 
   addUser(user: User): Observable<User> {
     return this.http.post<User>(this.signuppURL, user, httpOptions)
