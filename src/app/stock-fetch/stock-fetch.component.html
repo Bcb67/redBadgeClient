@@ -5,17 +5,26 @@
     <li *ngFor="let item of names">{{item}}</li>
     <li *ngFor="let item of display2">{{item}}</li>
 </ol> -->
-<div *ngIf="click === true">
-    <!-- <mat-card id="centerpls" *ngFor='let item of names; let i = index'>
-        <mat-card-title>
-            <h1>{{coins[i]}}</h1>
-        </mat-card-title>
-        <mat-card-content>
-            <h4>{{item}}</h4>
-            <h4>${{prices[i]}}</h4>
-        </mat-card-content>
-    </mat-card> -->
-    <ngx-spinner></ngx-spinner>
-    
-    <app-crypto-table></app-crypto-table>
-</div>
+<!-- <div *ngIf="click === true"> -->
+        <button (click)='button()'>print the thing please</button>
+    <div *ngIf="disp === true">
+
+        <mat-card id="centerpls">
+            <mat-card-title>
+                <h1>title</h1>
+            </mat-card-title>
+            <mat-card-content>
+                <h4>header</h4>
+                <h4>price</h4>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+
+
+
+    <!-- Table with spinner functional -->
+    <!-- <ngx-spinner></ngx-spinner>
+
+    <app-crypto-table></app-crypto-table> -->
+<!-- </div> -->

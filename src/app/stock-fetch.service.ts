@@ -33,6 +33,8 @@ export class DatabaseService {
   coins = [];
   retVal = [];
 
+  firstTime = true;
+
   dailyData: any;
 
   fetchSymbolInfo(input) {
@@ -106,6 +108,7 @@ export class DatabaseService {
   };
   
   getCoinNames() {
+    this.coins = [];
     for (let name in this.symbolnameData) {
       this.coins.push(name)
     }
@@ -114,6 +117,7 @@ export class DatabaseService {
   }
 
   getSymbolNames() {
+    this.symbols = [];
     for (let name in this.symbolnameData) {
       this.symbols.push(this.symbolnameData[name])
     }
@@ -122,7 +126,6 @@ export class DatabaseService {
   }
 
   getObject() {
-    
     for(let i = 0; i < this.portSyms.length; i++) {
       this.retVal.push({name: this.coins[i], symbol: this.portSyms[i], price: this.symPrice[i]})
     }
@@ -133,14 +136,16 @@ export class DatabaseService {
   getTop24hr() {
     // let top24hr = {};
     this.http.get('https://min-api.cryptocompare.com/data/top/totalvolfull?limit=10&tsym=USD').subscribe(data => {
-      // console.log('fetchService',data.Data);
+      // console.log('fetchService:',data.Data);
       // this.dailyData = data.Data;
-      return true;
     })
+    return this.dailyData
     // console.log(top24hr);
   }
 
   getPortfolioValues(input) {
+    this.portSyms = [];
+    this.symPrice = [];
     console.log(input)
     for (let item in input) {
       this.portSyms.push(item)
