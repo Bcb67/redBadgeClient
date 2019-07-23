@@ -9,3 +9,8 @@
 tr.mat-footer-row {
   font-weight: bold;
 }
+
+input {
+  width: 3em;
+  padding: auto 1px
+}
