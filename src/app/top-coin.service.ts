@@ -1,25 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+// import { throwError as ObservableThrowError, Observable } from 'rxjs';
+// import { catchError } from 'rxjs/operators';
+// import { Data } from './models/DataModel';
 
-
-@Injectable({
-  providedIn: 'root'
-})
-
+@Injectable()
 export class TopCoinService {
-  
+  url:string = "https://min-api.cryptocompare.com/data/top/totalvolfull?limit=10&tsym=USD"
 
-
-  constructor(private http: HttpClient) { }
-
-  baseurl = 'https://min-api.cryptocompare.com/data/top/totalvolfull?limit=6&tsym=USD'
+  constructor(
+    private http: HttpClient,
   
-  url: any;
-  display: any;
-  
-  fetchTopCoins() {
-    this.http.get(this.baseurl).subscribe((dat: any) => {this.display = dat; console.log('display:', this.display)})
-    console.log(this.display)
-    return this.display
+  ) { }
+
+  // GET list of public, future events
+  getTopCoins(){
+    return this.http.get(this.url)
+       
   }
 }
