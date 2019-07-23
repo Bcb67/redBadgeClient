@@ -30,11 +30,13 @@ export class DatabaseService {
   portSyms = [];
   portQuan = [];
   symPrice = [];
+  coins = [];
 
   fetchSymbolInfo(input) {
     // console.log('names: ', this.names)
     this.url = this.baseurl + input + '&tsyms=USD'
     this.http.get(this.url).subscribe((dat: any) => {this.display = dat; console.log('display:', this.display)})
+    console.log(this.display)
     return this.display
   }
   private symbolnameData: any = {
@@ -97,9 +99,17 @@ export class DatabaseService {
     'KuCoin': 'KCS',
     'DigiByte': 'DGB',
     'Ethos': 'BQX',
-    'Gas': 'GAS'
+    'Gas': 'GAS',
   };
   
+  getCoinNames() {
+    for (let name in this.symbolnameData) {
+      this.coins.push(name)
+    }
+    // console.log(this.symbols)
+    return this.coins
+  }
+
   getSymbolNames() {
     for (let name in this.symbolnameData) {
       this.symbols.push(this.symbolnameData[name])
@@ -115,8 +125,8 @@ export class DatabaseService {
       this.symPrice.push(input[item].USD)
     }
     
-    console.log(this.portSyms)
-    console.log(this.symPrice)
+    console.log('portSyms:',this.portSyms)
+    console.log('symPrice:',this.symPrice)
     // console.log(this.portSyms)
     // return this.portSyms
   }

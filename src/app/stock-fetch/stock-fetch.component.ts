@@ -12,9 +12,12 @@ export class StockFetchComponent implements OnInit {
   // stock = {};
   // symbols = {};
   // BTC,ETH&tsyms=USD,EUR'
-  names: any;
+  names= [];
   display: any;
-  display2: any;  
+  display2: any;
+  prices= [];
+  click = false;
+  coins= [];
   // private symbolnameData: any = {
   //   'Bitcoin': 'BTC',
   //   'Ethereum': 'ETH',
@@ -87,11 +90,17 @@ export class StockFetchComponent implements OnInit {
     // console.log('names: ', this.names)
     this.display = this.dbService.fetchSymbolInfo(this.names)
     this.display2 = this.dbService.getPortfolioValues(this.display)
+    this.prices = this.dbService.symPrice
+    this.coins = this.dbService.getCoinNames()
+    this.click=true
     return this.display2
   }
 
   ngOnInit() {
     this.names = this.dbService.getSymbolNames()
+    this.display = this.dbService.fetchSymbolInfo(this.names)
+    this.display2 = this.dbService.getPortfolioValues(this.display)
+    this.coins = this.dbService.getCoinNames()
     // this.dbService.coinlist().subscribe((data: any) => { console.log(data) })
     // this.url = this.baseurl + this.names + '&tsyms=USD'
     // this.http.get(this.url).subscribe((dat: any) => {console.log(dat)})
