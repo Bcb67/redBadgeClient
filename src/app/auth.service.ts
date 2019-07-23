@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { User } from './models/UserModel';
 import { Login } from './models/LoginModel';
+
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 const httpOptions = {
@@ -16,12 +17,15 @@ const httpOptions = {
 })
 export class AuthService {
 
+  id: number;
+  username: string
   constructor(private http: HttpClient, private router: Router, public jwtHelper: JwtHelperService) { }
 
   suli = true;
-  signuppURL = 'http://localhost:4000/user/signup'
-  loginURL = 'http://localhost:4000/user/signin'
-  landingURL = 'http://localhost:4000'
+  signuppURL = 'http://localhost:3000/user/signup'
+  loginURL = 'http://localhost:3000/user/signin'
+  landingURL = 'http://localhost:3000'
+  portfolioURL = `http://localhost:3000/portfolio/1`
 
   addUser(user: User): Observable<User> {
     return this.http.post<User>(this.signuppURL, user, httpOptions)

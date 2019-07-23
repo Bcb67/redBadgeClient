@@ -22,4 +22,7 @@ export class NavbarComponent implements OnInit {
     this.val = !this.authservice.suli;
     this.authservice.suli = this.val;
   }
+  portfolioBtn(){
+    localStorage.getItem('token');
+  }
 }

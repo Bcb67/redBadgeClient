@@ -37,17 +37,19 @@ export class StockFetchComponent implements OnInit {
   }
   
   ngOnInit() {
+    this.spinner.show();
+
     // Table onIit Stuff
     /** spinner starts on init */
-    // this.spin()
-    // this.names = this.dbService.getSymbolNames()
-    // this.display = this.dbService.fetchSymbolInfo(this.names)
-    // this.display2 = this.dbService.getPortfolioValues(this.display)
-    // this.coins = this.dbService.getCoinNames()
+    this.spin()
+    this.names = this.dbService.getSymbolNames()
+    this.display = this.dbService.fetchSymbolInfo(this.names)
+    this.display2 = this.dbService.getPortfolioValues(this.display)
+    this.coins = this.dbService.getCoinNames()
 
     // cards
     // this.top24 = this.dbService.getTop24hr()
-    this.spin()
+    // this.spin()
   }
 
   button() {
@@ -57,15 +59,14 @@ export class StockFetchComponent implements OnInit {
 
   spin() {
     if(this.dbService.firstTime){
-      this.spinner.show();
       setTimeout(() => {
         /** spinner ends after 5 seconds */
         // this.spinner.hide();
-        this.top24 = this.dbService.getTop24hr()
+        // this.top24 = this.dbService.getTop24hr()
         setTimeout(() => {
           /** spinner ends after 5 seconds */
-          // this.spinner.hide();
-          this.disp = true;
+          this.spinner.hide();
+          // this.disp = true;
         }, 1500);
       }, 3000);
     }
