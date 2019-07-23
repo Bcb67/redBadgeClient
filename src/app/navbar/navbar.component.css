@@ -1,9 +1,56 @@
 .filler {
     flex: auto;
 }
-h1{
+/* h1{
     width: auto;
+} */
+
+.routeButton {
+    color: #160C28;
+    text-decoration: none;
+    padding: .25em;
+    border-radius: .25em;
+    border: 1px solid #272727;
 }
-#logBtn {
-    margin-right: 40px;
+
+.navbar {
+    text-align: center;
+    /* background-color: #55917f; GREEN 2 */
+    background-color: #EFF1F3;
+    /* background-color: #F865B0; PINK*/
+    /* background-color: #A42CD6;  purple color*/
+    box-shadow: 0 0 5px black;
 }
+#navIcon {
+    width: 100%;
+    border-radius: 25%;
+}
+
+@media only screen and (max-width:600px) {
+    .routeButton {
+        font-size: .5em;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .routeButton {
+        font-size: 1em;
+    }
+}
+
+@media only screen and (min-width: 993px) {
+    .routeButton {
+        font-size: 1.25em;
+    }
+}
+
+
+/*
+PURPLE COLORS
+color palette:
+Melon: #EEB4B3
+African Violet: #C179B9
+Dark Orchid: #A42CD6
+Spanish Violet: #502274
+Dark Purple: #2F242C
+*/

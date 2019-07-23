@@ -1,0 +1,13 @@
+#centerpls{
+    display: inline-block;
+    margin: 2.5em 1.25em;
+    text-align: center;
+    width: 16.5em;
+    height: 16.5em;
+}
+#doStuff{
+    text-align: center;
+}
+.titles{
+    margin-left: 1em;
+}

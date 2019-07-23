@@ -19,11 +19,12 @@ export class SignuppComponent implements OnInit {
   constructor(private authservice: AuthService) { }
 
   ngOnInit() {
+    // this.authservice.suli = true;
   }
-
+  
   onSubmit() {
     let user = {user:{ username: this.signupForm.value.username, fName: this.signupForm.value.fName, lName: this.signupForm.value.lName, email: this.signupForm.value.email, password: this.signupForm.value.password }}
-    this.authservice.addUser(user).subscribe(data => console.log(data))
-    console.log(user)
-  }
-}
+    this.authservice.addUser(user).subscribe(data => console.log('signed up'))
+      alert('Created New User!')
+    }
+   }
