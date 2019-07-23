@@ -22,5 +22,4 @@ export class TopCoinService {
     console.log(this.display)
     return this.display
   }
- 
 }

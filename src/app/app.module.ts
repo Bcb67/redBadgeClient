@@ -5,19 +5,26 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { MatGridListModule} from '@angular/material';
+import { MatGridListModule, MatTableModule, MatSortModule} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AccountComponent } from './account/account.component';
-
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { NgxSpinnerModule } from "ngx-spinner";
 import { StockFetchComponent } from './stock-fetch/stock-fetch.component';
-import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms'
-
-
+import { HttpClientModule } from '@angular/common/http'
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { SignuppComponent } from './signupp/signupp.component';
+import {MatInputModule} from '@angular/material/input';
+
+import { CryptoTableComponent } from './crypto-table/crypto-table.component';
+
+import { ReactiveFormsModule } from '@angular/forms'
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { AuthGuardService} from './auth-guard.service';
+import { AuthService } from './auth.service';
+import { PortfolioComponent } from './portfolio/portfolio.component';
+import { LandingComponent } from './landing/landing.component';
 
 
 @NgModule({
@@ -26,8 +33,10 @@ import { SignuppComponent } from './signupp/signupp.component';
     StockFetchComponent,
     NavbarComponent,
     LoginComponent,
-    SignuppComponent
-    
+    SignuppComponent,
+    CryptoTableComponent,
+    PortfolioComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,
@@ -35,13 +44,18 @@ import { SignuppComponent } from './signupp/signupp.component';
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,
+    MatInputModule,
     MatGridListModule,
     BrowserAnimationsModule,
     HttpClientModule,
     MatButtonToggleModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatPaginatorModule,
+    MatTableModule,
+    MatSortModule,
+    NgxSpinnerModule
   ],
-  providers: [],
+  providers: [ AuthGuardService, AuthService, JwtHelperService,{provide:JWT_OPTIONS,useValue:JWT_OPTIONS}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
-
+/* @import '../custom-theme.scss'; */
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #502274 } purple color */
+/* body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #FBCAEF } PINK*/
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #272727}
+/* body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #F5FBEF } REAL GREEN */
+/* body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #e1f0c4 }  GREEN THE SECON*/
+
+
+/*
+PINK COLORS
+otgher palette option
+Aero Blue: #D2F1E4
+Classic Rose: #FBCAEF
+Hot Pink: #F865B0
+Frostbite: #E637BF
+Purple Taupe: #48304D
+*/
+
+/*
+GREEN OPTIONS
+Honeydew: #F5FBEF
+Dark Sea Green: #92AD94
+Xanadu: #748B75
+Dark Puce: #503D42
+Limerick: #84C318
+*/

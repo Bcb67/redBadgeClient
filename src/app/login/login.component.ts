@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { AuthService } from '../auth.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -18,8 +19,15 @@ export class LoginComponent implements OnInit {
   }
   onSubmit() {
     let login = {user:{ username: this.loginForm.value.username, password: this.loginForm.value.password }}
-    this.authservice.loginUser(login).subscribe(data => console.log(data))
-    console.log(login)
+    this.authservice.loginUser(login).subscribe(data => {localStorage.setItem('token',data.sessionToken);this.goProfile()})
+  }
+  goProfile() {
+    if(localStorage.getItem('token')){
+      alert('YOU LOGGED IN');
+
+    }else if(!localStorage.getItem('token')) {
+      alert('WRONG CREDENTIALS CUZ')
+    }
   }
 }
 

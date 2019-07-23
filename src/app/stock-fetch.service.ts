@@ -18,25 +18,31 @@ export class DatabaseService {
   // private dbUrl = 'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=CLAM,WTT&to_currency=USD&apikey=81A9SMJUX2B387P9';
   // apiKey = '81A9SMJUX2B387P9'
   // data = {}
-  symbols = [];
-
+  
   constructor(private http: HttpClient) { }
-
+  
   baseurl = 'https://min-api.cryptocompare.com/data/pricemulti?fsyms='
   // BTC,ETH&tsyms=USD,EUR'
- 
+  
   url: any;
   display: any;
   portSyms = [];
   portQuan = [];
   symPrice = [];
+  symbols = [];
   coins = [];
+  retVal = [];
+  pls = true;
+
+  firstTime = true;
+
+  dailyData: any;
 
   fetchSymbolInfo(input) {
     // console.log('names: ', this.names)
     this.url = this.baseurl + input + '&tsyms=USD'
-    this.http.get(this.url).subscribe((dat: any) => {this.display = dat; console.log('display:', this.display)})
-    console.log(this.display)
+    this.http.get(this.url).subscribe((dat: any) => {this.display = dat})
+    // console.log(this.display)
     return this.display
   }
   private symbolnameData: any = {
@@ -103,6 +109,7 @@ export class DatabaseService {
   };
   
   getCoinNames() {
+    this.coins = [];
     for (let name in this.symbolnameData) {
       this.coins.push(name)
     }
@@ -111,6 +118,7 @@ export class DatabaseService {
   }
 
   getSymbolNames() {
+    this.symbols = [];
     for (let name in this.symbolnameData) {
       this.symbols.push(this.symbolnameData[name])
     }
@@ -118,15 +126,47 @@ export class DatabaseService {
     return this.symbols
   }
 
+  getObject() {
+    // this.retVal = [];
+    
+    if(this.pls){
+      for(let i = 0; i < this.portSyms.length; i++) {
+        this.retVal.push({name: this.coins[i], symbol: this.portSyms[i], price: this.symPrice[i], quantity: 0})
+      }
+    }
+    this.pls = false
+    console.log(this.retVal)
+    return this.retVal;
+  }
+
+  getTop24hr() {
+    // let top24hr = {};
+    this.http.get('https://min-api.cryptocompare.com/data/top/totalvolfull?limit=10&tsym=USD').subscribe(data => {
+      // console.log('fetchService:',data.Data);
+      // this.dailyData = data.Data;
+    })
+    return this.dailyData
+    // console.log(top24hr);
+  }
+
   getPortfolioValues(input) {
-    console.log(input)
+    this.portSyms = [];
+    this.symPrice = [];
+    // console.log(input)
     for (let item in input) {
       this.portSyms.push(item)
       this.symPrice.push(input[item].USD)
     }
-    
-    console.log('portSyms:',this.portSyms)
-    console.log('symPrice:',this.symPrice)
+    // console.log({
+    //   portSyms: this.portSyms,
+    //   symPrice: this.symPrice
+    // })
+    return {
+      portSyms: this.portSyms,
+      symPrice: this.symPrice
+    }
+    // console.log('portSyms:',this.portSyms)
+    // console.log('symPrice:',this.symPrice)
     // console.log(this.portSyms)
     // return this.portSyms
   }

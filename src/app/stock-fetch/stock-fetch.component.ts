@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewChildren } from '@angular/core';
 // import { HttpClient } from '@angular/common/http';
-import { DatabaseService } from '../stock-fetch.service'
+import { DatabaseService } from '../stock-fetch.service';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-stock-fetch',
@@ -8,107 +9,94 @@ import { DatabaseService } from '../stock-fetch.service'
   styleUrls: ['./stock-fetch.component.css'],
 })
 export class StockFetchComponent implements OnInit {
-
-  // stock = {};
-  // symbols = {};
-  // BTC,ETH&tsyms=USD,EUR'
-  names= [];
+  names: Array<60>;
   display: any;
   display2: any;
-  prices= [];
+  prices: Array<60>;
   click = false;
-  coins= [];
-  // private symbolnameData: any = {
-  //   'Bitcoin': 'BTC',
-  //   'Ethereum': 'ETH',
-  //   'Ripple': 'XRP',
-  //   'Bitcoin Cash': 'BCH',
-  //   'Litecoin': 'LTC',
-  //   'Cardano': 'ADA',
-  //   'NEO': 'NEO',
-  //   'Stellar': 'XLM',
-  //   'Monero': 'XMR',
-  //   'EOS': 'EOS',
-  //   'IOTA': 'IOT',
-  //   'Dash': 'DASH',
-  //   'NEM': 'XEM',
-  //   'TRON': 'TRX',
-  //   'Eth Classic': 'ETC',
-  //   'Tether': 'USDT',
-  //   'VeChain': 'VEN',
-  //   'Qtum': 'QTUM',
-  //   'Nano': 'XRB',
-  //   'Lisk': 'LSK',
-  //   'Bitcoin Gold': 'BTG',
-  //   'OmiseGo': 'OMG',
-  //   'ICON': 'ICX',
-  //   'Zcash': 'ZEC',
-  //   'Digix DAO': 'DGD',
-  //   'Binance Coin': 'BNB',
-  //   'Steem': 'STEEM',
-  //   'Verge': 'XVG',
-  //   'Stratis': 'STRAT',
-  //   'Populous': 'PPT',
-  //   'ByteCoin': 'BCN',
-  //   'Waves': 'WAVES',
-  //   'Siacoin': 'SC',
-  //   'Status': 'SNT',
-  //   'RChain': 'RHOC',
-  //   'Maker': 'MKR',
-  //   'DogeCoin': 'DOGE',
-  //   'Bitshares': 'BTS',
-  //   'Decred': 'DCR',
-  //   'Aeternity': 'AE',
-  //   'Waltonchain': 'WTC',
-  //   'Augur': 'REP',
-  //   'Electroneum': 'ETN',
-  //   '0x': 'ZRX',
-  //   'Komodo': 'KMD',
-  //   'Bytom': 'BTM',
-  //   'ARK': 'ARK',
-  //   'Veritaseum': 'VERI',
-  //   'Ardor': 'ARDR',
-  //   'Golem': 'GNT',
-  //   'Dragonchain': 'DRGN',
-  //   'Hshare': 'HSR',
-  //   'BAT': 'BAT',
-  //   'Cryptonex': 'CNX',
-  //   'SysCoin': 'SYS',
-  //   'Zilliqa': 'ZIL',
-  //   'KuCoin': 'KCS',
-  //   'DigiByte': 'DGB',
-  //   'Ethos': 'BQX',
-  //   'Gas': 'GAS'
-  // };
+  coins: Array<60>;
+  disp = false;
+  top24: any;
 
   constructor(
-    // private http: HttpClient,
     private dbService: DatabaseService,
+    private spinner: NgxSpinnerService
   ) { }
 
-  buttonThing() {
-    // console.log('names: ', this.names)
+  tableButtonThing() {
     this.display = this.dbService.fetchSymbolInfo(this.names)
+    this.display2 = []
+    this.prices = []
+    this.coins = []
     this.display2 = this.dbService.getPortfolioValues(this.display)
     this.prices = this.dbService.symPrice
     this.coins = this.dbService.getCoinNames()
-    this.click=true
+    this.click = true
+    // for(let i = 0; i > this.coins.length + 7; i++) {
+    //   this.coins.pop()
+    // }
+    // this.dbService.getdbObject()
     return this.display2
   }
 
   ngOnInit() {
-    this.names = this.dbService.getSymbolNames()
-    this.display = this.dbService.fetchSymbolInfo(this.names)
-    this.display2 = this.dbService.getPortfolioValues(this.display)
-    this.coins = this.dbService.getCoinNames()
-    // this.dbService.coinlist().subscribe((data: any) => { console.log(data) })
-    // this.url = this.baseurl + this.names + '&tsyms=USD'
-    // this.http.get(this.url).subscribe((dat: any) => {console.log(dat)})
-    // console.log(this.stock)
+    if (this.dbService.firstTime) {
+      this.spinner.show()
+      this.spin()
+      this.names = this.dbService.getSymbolNames()
+      this.display = this.dbService.fetchSymbolInfo(this.names)
+      this.display2 = this.dbService.getPortfolioValues(this.display)
+      this.coins = this.dbService.getCoinNames()
+    };
+
+    // Table onIit Stuff
+    /** spinner starts on init */
+
+    // cards
+    // this.top24 = this.dbService.getTop24hr()
+    // this.spin()
   }
 
+  button() {
+    this.spin()
+    console.log(this.top24);
+  }
+
+  spin() {
+    if (this.dbService.firstTime) {
+      setTimeout(() => {
+        /** spinner ends after 5 seconds */
+        // this.spinner.hide();
+        // this.top24 = this.dbService.getTop24hr()
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+          // this.disp = true;
+        }, 1500);
+      }, 3000);
+    }
+    this.dbService.firstTime = false;
+  }
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.tableButtonThing()
+    }, 1000)
+    // 500 for local fetch, 1000 for tablefetch
+  }
 }
 
-//     (data: any) => {
-//       this.ship = data.results[0]
+
+// [
+//   {
+//     CoinInfo: {
+//       FullName: 'BitCoin',
+//       Name: 'BTC',
+//       ImageUrl: '/media/19633/btc.png'
+//     },
+//     DISPLAY: {
+//       CHANGEPCT24HOUR: '-2.24',
+//       PRICE: '$223345'
 //     }
+//   }
+// ]
