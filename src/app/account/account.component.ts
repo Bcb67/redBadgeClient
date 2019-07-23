@@ -30,7 +30,7 @@ export class AccountComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.names = this.dbService.getNames()
+    this.names = this.dbService.getSymbolNames()
     // this.dbService.coinlist().subscribe((data: any) => { console.log(data) })
     // this.url = this.baseurl + this.names + '&tsyms=USD'
     // this.http.get(this.url).subscribe((dat: any) => {console.log(dat)})
