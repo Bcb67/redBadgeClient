@@ -2,6 +2,7 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSort, MatTable } from '@angular/material';
 import { CryptoTableDataSource, CryptoTableItem } from './crypto-table-datasource';
 import { DatabaseService } from '../stock-fetch.service';
+import { FormGroup, FormControl } from '@angular/forms';
 
 
 @Component({
@@ -20,9 +21,50 @@ export class CryptoTableComponent implements AfterViewInit, OnInit {
   //   this.dataSource.filter = filterValue.trim().toLowerCase();
   // }
 
+  tableForm = new FormGroup({
+    btcQuan: new FormControl('')
+  });
+
+  onSubmit() {
+    let user = {btcQuan: this.tableForm.value.btcQuan}
+    console.log("thing from table",user)
+    // this.authservice.addUser(user).subscribe(data => console.log('signed up'))
+      // alert('Created New User!')
+      // console.log(user)
+    }
+
+  coinsForPortf = [];
+  quansForPortf = [];
+
+  pricepls: any;
+
+  pricePoC(val, upVal, name) {
+    if(!this.tableForm.value.btcQuan){
+      this.tableForm.value.btcQuan = 0
+    }
+
+    if(this.tableForm.value.btcQuan > 0) {
+      this.coinsForPortf.push(name);
+      this.quansForPortf.push(this.tableForm.value.btcQuan);
+
+      console.log(this.coinsForPortf)
+      console.log(this.quansForPortf)
+    }
+    console.log('quan:', typeof(this.tableForm.value.btcQuan), this.tableForm.value.btcQuan)
+    console.log('val:', typeof(val), val)
+    this.pricepls =  (Number(this.tableForm.value.btcQuan) * Number(val))
+    upVal = this.pricepls
+    console.log('upval', upVal)
+    return upVal;
+  }
+
+  updateVal(val, upVal, name) {
+    console.log('VALUE:',this.pricePoC(val, upVal, name))
+  }
+
   constructor(public dbService: DatabaseService) {}
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['name', 'symbol', 'price'];
+  displayedColumns = ['name', 'symbol', 'price', 'quantity', 'userCost'];
 
   ngOnInit() {
     // this.dbService.getObject()

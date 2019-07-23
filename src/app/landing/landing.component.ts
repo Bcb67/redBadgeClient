@@ -14,7 +14,7 @@ export class LandingComponent implements OnInit {
   ngOnInit() {
     this.isTrue = this.dbService.getTop24hr()
     this.top10Growing = this.dbService.dailyData;
-    console.log(this.top10Growing)
+    // console.log(this.top10Growing)
     // console.log(this.top10Growing)
   }
 

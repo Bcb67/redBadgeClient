@@ -9,12 +9,12 @@ import { NgxSpinnerService } from "ngx-spinner";
   styleUrls: ['./stock-fetch.component.css'],
 })
 export class StockFetchComponent implements OnInit {
-  names = [];
+  names: Array<60>;
   display: any;
   display2: any;
-  prices = [];
+  prices: Array<60>;
   click = false;
-  coins = [];
+  coins: Array<60>;
   disp = false;
   top24: any;
 
@@ -32,20 +32,25 @@ export class StockFetchComponent implements OnInit {
     this.prices = this.dbService.symPrice
     this.coins = this.dbService.getCoinNames()
     this.click = true
+    // for(let i = 0; i > this.coins.length + 7; i++) {
+    //   this.coins.pop()
+    // }
     // this.dbService.getdbObject()
     return this.display2
   }
-  
+
   ngOnInit() {
-    this.spinner.show();
+    if (this.dbService.firstTime) {
+      this.spinner.show()
+      this.spin()
+      this.names = this.dbService.getSymbolNames()
+      this.display = this.dbService.fetchSymbolInfo(this.names)
+      this.display2 = this.dbService.getPortfolioValues(this.display)
+      this.coins = this.dbService.getCoinNames()
+    };
 
     // Table onIit Stuff
     /** spinner starts on init */
-    this.spin()
-    this.names = this.dbService.getSymbolNames()
-    this.display = this.dbService.fetchSymbolInfo(this.names)
-    this.display2 = this.dbService.getPortfolioValues(this.display)
-    this.coins = this.dbService.getCoinNames()
 
     // cards
     // this.top24 = this.dbService.getTop24hr()
@@ -58,7 +63,7 @@ export class StockFetchComponent implements OnInit {
   }
 
   spin() {
-    if(this.dbService.firstTime){
+    if (this.dbService.firstTime) {
       setTimeout(() => {
         /** spinner ends after 5 seconds */
         // this.spinner.hide();

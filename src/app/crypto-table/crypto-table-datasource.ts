@@ -11,13 +11,14 @@ export interface CryptoTableItem {
   name: string;
   symbol: string;
   price: number;
+  quantity: number;
 }
 
 // TODO: replace this with real data from your application
 const EXAMPLE_DATA: CryptoTableItem[] = [
-  {name: 'Bitcoin', symbol: 'BTC', price: 9874.346},
-  {name: 'Bitcoin', symbol: 'BTC', price: 9874.346},
-  {name: 'Bitcoin', symbol: 'BTC', price: 9874.346},
+  {name: 'Bitcoin', symbol: 'BTC', price: 9874.346, quantity: 0},
+  {name: 'Bitcoin', symbol: 'BTC', price: 9874.346, quantity: 0},
+  {name: 'Bitcoin', symbol: 'BTC', price: 9874.346, quantity: 0},
 ];
 
 /**
@@ -33,7 +34,7 @@ export class CryptoTableDataSource extends DataSource<CryptoTableItem> {
   constructor(private dbService: DatabaseService) {
     super();
     this.data = this.dbService.getObject();
-    console.log(this.data)
+    // console.log(this.data)
   }
   
   
