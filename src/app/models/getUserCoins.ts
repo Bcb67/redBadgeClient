@@ -1,4 +1,4 @@
-export interface getUserCoins {
+export interface userCoins {
     id?: number,
     username: string,
     fName?: string,
