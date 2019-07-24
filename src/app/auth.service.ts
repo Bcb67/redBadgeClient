@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { Observable, throwError, fromEventPattern } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { User } from './models/UserModel';
 import { Login } from './models/LoginModel';
-
+import { getUserCoins } from './models/getUserCoins';
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { APIURL } from 'src/environments/environment.prod';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json'
   })
 };
+
 @Injectable({
   providedIn: 'root'
 })
@@ -20,12 +22,12 @@ export class AuthService {
   id: number;
   username: string
   constructor(private http: HttpClient, private router: Router, public jwtHelper: JwtHelperService) { }
-
+  currentID: number
   suli = true;
-  signuppURL = 'http://localhost:3000/user/signup'
-  loginURL = 'http://localhost:3000/user/signin'
-  landingURL = 'http://localhost:3000'
-  portfolioURL = `http://localhost:3000/portfolio/1`
+  signuppURL = `${APIURL}/user/signup`
+  loginURL = `${APIURL}/user/signin`
+  landingURL = `${APIURL}`
+  portfolioURL = `${APIURL}/user/`
 
   addUser(user: User): Observable<User> {
     return this.http.post<User>(this.signuppURL, user, httpOptions)
@@ -51,5 +53,14 @@ export class AuthService {
   public isAuthenticated(): boolean {
     const token = localStorage.getItem('token');
     return !this.jwtHelper.isTokenExpired(token);
+  }
+  getUserCoins(): Observable<getUserCoins> {
+    const httpAuth = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      })
+    };
+    return this.http.get<getUserCoins>(this.portfolioURL+this.currentID, httpAuth);
   }
 }
