@@ -1,7 +1,7 @@
 <div fxLayout='row' fxLayoutWrap class="cards">
 
-    <div fxFlex="20" class="example-card">
-    <mat-card *ngFor="let value of data" style="margin-top:10px;">
+    <div fxFlex="20">
+    <mat-card class="card" *ngFor="let value of data" style="margin-top:10px;">
       <mat-card-header>
         <mat-card-title>{{value.CoinInfo.Name}}</mat-card-title>
         <mat-card-subtitle>{{value.CoinInfo.FullName}}
@@ -10,10 +10,19 @@
       <img mat-card-image src="https://www.cryptocompare.com{{value.CoinInfo.ImageUrl}}" alt="cryptocurrency logo">
       <mat-card-content>
         <p>
-          {{value.DISPLAY.USD.PRICE}}
+          Current Price: {{value.DISPLAY.USD.PRICE}}
         </p>
         <p>
-            {{value.DISPLAY.USD.CHANGEPCT24HOUR}}
+            24 Hour High: {{value.DISPLAY.USD.HIGH24HOUR}}
+        </p>
+        <p>
+            24 Hour Low: {{value.DISPLAY.USD.LOW24HOUR}}
+        </p>
+        <p>
+           24 Hour Change: {{value.DISPLAY.USD.CHANGEPCT24HOUR}}%
+        </p>
+        <p>
+            Market Cap: {{value.DISPLAY.USD.MKTCAP}}
         </p>
       </mat-card-content>
     </mat-card>
