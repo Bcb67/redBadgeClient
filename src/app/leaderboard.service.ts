@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError} from 'rxjs'
+import { leaderboardModel } from './models/leaderboardModels/leaderboard'
+import { APIURL } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -7,9 +10,17 @@ import { HttpClient } from '@angular/common/http';
 export class LeaderboardService {
 
   constructor(private http: HttpClient) { }
+  users: any
+  getLeaderboard(): Observable<leaderboardModel> {
+    const httpAuth = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      })
+    };
 
-  getLeaderboard() {
-    return this.http.get('http://localhost:3000/league/current').subscribe(data => console.log(data))
+    return this.http.get<leaderboardModel>(`${APIURL}/league/current`, httpAuth)
+    // console.log('users return:', users)
+    // .subscribe(data => console.log(data))
   }
-
 }

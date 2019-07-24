@@ -16,7 +16,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { SignuppComponent } from './signupp/signupp.component';
 import {MatInputModule} from '@angular/material/input';
-
+import { LeaderboardComponent} from './leaderboard/leaderboard.component'
 import { CryptoTableComponent } from './crypto-table/crypto-table.component';
 import { TopCoinService } from './top-coin.service'
 import { ReactiveFormsModule } from '@angular/forms'
@@ -25,12 +25,8 @@ import { AuthGuardService} from './auth-guard.service';
 import { AuthService } from './auth.service';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { LandingComponent } from './landing/landing.component';
-<<<<<<< HEAD
-import { LeaderboardComponent } from './leaderboard/leaderboard.component';
-=======
 import { TopCoinsComponent } from './top-coins/top-coins.component';
 
->>>>>>> d6fc99583a128c8458c478846e444c36b97a4ae4
 
 @NgModule({
   declarations: [
@@ -42,11 +38,8 @@ import { TopCoinsComponent } from './top-coins/top-coins.component';
     CryptoTableComponent,
     PortfolioComponent,
     LandingComponent,
-<<<<<<< HEAD
+    TopCoinsComponent,
     LeaderboardComponent
-=======
-    TopCoinsComponent
->>>>>>> d6fc99583a128c8458c478846e444c36b97a4ae4
   ],
   imports: [
     BrowserModule,

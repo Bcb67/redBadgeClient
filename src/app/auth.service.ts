@@ -7,6 +7,7 @@ import { Login } from './models/LoginModel';
 import { getUserCoins } from './models/getUserCoins';
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { APIURL } from 'src/environments/environment.prod';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json'
@@ -23,10 +24,10 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router, public jwtHelper: JwtHelperService) { }
   currentID: number
   suli = true;
-  signuppURL = 'http://localhost:3000/user/signup'
-  loginURL = 'http://localhost:3000/user/signin'
-  landingURL = 'http://localhost:3000'
-  portfolioURL = `http://localhost:3000/user/`
+  signuppURL = `${APIURL}/user/signup`
+  loginURL = `${APIURL}/user/signin`
+  landingURL = `${APIURL}`
+  portfolioURL = `${APIURL}/user/`
 
   addUser(user: User): Observable<User> {
     return this.http.post<User>(this.signuppURL, user, httpOptions)
