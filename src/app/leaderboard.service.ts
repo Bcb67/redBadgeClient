@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError} from 'rxjs'
 import { leaderboardModel } from './models/leaderboardModels/leaderboard'
+import { APIURL } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ export class LeaderboardService {
       })
     };
 
-    return this.http.get<leaderboardModel>('http://localhost:3000/league/current', httpAuth)
+    return this.http.get<leaderboardModel>(`${APIURL}/league/current`, httpAuth)
     // console.log('users return:', users)
     // .subscribe(data => console.log(data))
   }
