@@ -25,6 +25,7 @@ import { AuthGuardService} from './auth-guard.service';
 import { AuthService } from './auth.service';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { LandingComponent } from './landing/landing.component';
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { LandingComponent } from './landing/landing.component';
     SignuppComponent,
     CryptoTableComponent,
     PortfolioComponent,
-    LandingComponent
+    LandingComponent,
+    LeaderboardComponent
   ],
   imports: [
     BrowserModule,
