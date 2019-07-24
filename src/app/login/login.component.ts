@@ -16,11 +16,10 @@ export class LoginComponent implements OnInit {
   constructor(private authservice: AuthService) { }
 
   ngOnInit() {
-    // this.authservice.suli = false;
   }
   onSubmit() {
     let login = {user:{ username: this.loginForm.value.username, password: this.loginForm.value.password }}
-    this.authservice.loginUser(login).subscribe(data => {localStorage.setItem('token',data.sessionToken);this.goProfile()})
+    this.authservice.loginUser(login).subscribe(data => {localStorage.setItem('token',data.sessionToken);this.authservice.currentID= data.user.id;this.goProfile()})
   }
   goProfile() {
     if(localStorage.getItem('token')){
@@ -31,3 +30,5 @@ export class LoginComponent implements OnInit {
     }
   }
 }
+
+
