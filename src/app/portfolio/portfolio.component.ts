@@ -20,7 +20,7 @@ export class PortfolioComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    this.authservice.getUser().subscribe(info=>{
+    this.authservice.getUserCoins().subscribe(info=>{
       console.log("user", info)
       this.username = info[0].username
       this.coins = info[0].Portfolio.coins
