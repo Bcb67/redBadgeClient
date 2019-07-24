@@ -7,18 +7,20 @@ import { DatabaseService } from '../stock-fetch.service';
   styleUrls: ['./landing.component.css']
 })
 export class LandingComponent implements OnInit {
-  isTrue:any;
-  top10Growing: any;
+  // isTrue:any;
+  // top10Growing: any;
   constructor(private dbService: DatabaseService) { }
 
+  names = this.dbService.symbols
+
   ngOnInit() {
-    this.isTrue = this.dbService.getTop24hr()
-    this.top10Growing = this.dbService.dailyData;
+    // this.isTrue = this.dbService.getTop24hr()
+    // this.top10Growing = this.dbService.dailyData;
     // console.log(this.top10Growing)
     // console.log(this.top10Growing)
   }
 
   setDisplay() {
-    this.top10Growing = this.dbService.getTop24hr()
+    // this.top10Growing = this.dbService.getTop24hr()
   }
 }
