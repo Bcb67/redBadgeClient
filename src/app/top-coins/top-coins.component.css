@@ -6,12 +6,12 @@
     font-family: 'Varela Round', sans-serif;
     width: 22%;
     display: inline-block;
-    border-radius: 2em;
+    border-radius: 1.5em;
     padding: .5em;
     margin: 2em;
     border-style: outset;
     border-width: 1em;
-    box-shadow: 5px 10px 18px rgb(250, 192, 2);
+    /* box-shadow: 5px 10px 18px rgb(250, 192, 2); */
     background-color: rgb(196, 195, 195)
     
 }
@@ -20,4 +20,11 @@ img {
     border-style: outset;
     border-width: .5em;
     border-radius: .5em;
+}
+.graph {
+    border-style: outset;
+    border-radius: .2em;
+    border-width: .2em;
+    width: 80%;
+    background-color: rgb(214, 214, 214)
 }
