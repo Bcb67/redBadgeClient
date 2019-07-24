@@ -26,6 +26,6 @@
             Market Cap: {{value.DISPLAY.USD.MKTCAP}}
         </p>
       </mat-card-content>
-      <img class="graph" mat-card-image src="https://images.cryptocompare.com/sparkchart/{{value.CoinInfo.Name}}/USD/latest.png?ts=1563986400">
+      <img class="graph" mat-card-image src="https://images.cryptocompare.com/sparkchart/{{value.CoinInfo.Name}}/USD/latest.png?ts={{value.RAW.USD.LASTUPDATE}}">
     </mat-card>
   </ng-container>

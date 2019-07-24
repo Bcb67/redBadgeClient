@@ -1,34 +1,18 @@
-<app-navbar></app-navbar>
-<h1 class="titles">User's name</h1>
-<div id="doStuff">
-    <h1 style="color: white">{{username}}'s coins</h1>
-    <mat-card id="centerpls">
-        <mat-card-title>
-            <h1>{{coins}}</h1>
-        </mat-card-title>
-        <mat-card-content>
-            <h4>Portfolio</h4>
-            <h4>Portfolio</h4>
-        </mat-card-content>
+<div fxLayout='row' fxLayoutWrap class="cards">
+    <div>
+    <mat-card class="card" *ngFor="let value of data" style="margin-top:10px;">
+      <mat-card-header>
+        <mat-card-title>{{username}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+          <p>
+              
+          </p>
+        
+      </mat-card-content>
+      <img class="graph" mat-card-image src="https://images.cryptocompare.com/sparkchart/{{value.CoinInfo.Name}}/USD/latest.png?ts={{value.RAW.USD.LASTUPDATE}}">
     </mat-card>
-    <mat-card id="centerpls">
-        <mat-card-title>
-            <h1>coins</h1>
-        </mat-card-title>
-        <mat-card-content>
-            <h4>item</h4>
-            <h4>prices</h4>
-        </mat-card-content>
-    </mat-card>
-    <mat-card id="centerpls">
-        <mat-card-title>
-            <h1>coins</h1>
-        </mat-card-title>
-        <mat-card-content>
-            <h4>item</h4>
-            <h4>prices</h4>
-        </mat-card-content>
-    </mat-card>
-</div>
+
 <h1 class="titles">LEADERBOARD!!!!!!!! :)</h1>
 <app-leaderboard></app-leaderboard>
+

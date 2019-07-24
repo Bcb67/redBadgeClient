@@ -1,4 +1,4 @@
-export interface getUserCoins {
+export interface UserCoins {
     id?: number,
     username: string,
     fName?: string,
@@ -12,6 +12,8 @@ export interface getUserCoins {
         id: number,
         coins: [string],
         quantity: [number],
-        funds?: number
+        funds?: number,
+        assets?: number
     }
-}
+    
+ }
