@@ -8,7 +8,7 @@
         <mat-card-subtitle>{{value.CoinInfo.Name}}
         </mat-card-subtitle>
       </mat-card-header>
-      <img mat-card-image src="https://www.cryptocompare.com{{value.CoinInfo.ImageUrl}}" alt="cryptocurrency logo">
+      <img mat-card-image src="https://www.cryptocompare.com{{value.CoinInfo.ImageUrl}}" alt="cryptocurrency logo" />
       <mat-card-content>
         <p>
           Current Price: {{value.DISPLAY.USD.PRICE}}
@@ -27,6 +27,5 @@
         </p>
       </mat-card-content>
       <img class="graph" mat-card-image src="https://images.cryptocompare.com/sparkchart/{{value.CoinInfo.Name}}/USD/latest.png?ts=1563986400">
-    </mat-card>
     </mat-card>
   </ng-container>
