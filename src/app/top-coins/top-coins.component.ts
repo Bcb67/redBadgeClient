@@ -15,8 +15,8 @@ export class TopCoinsComponent implements OnInit {
 
 
   ngOnInit() {
-    this.dataService.getTopCoins().subscribe((res : Data[])=>{
-      this.data = res;console.log(this.data)
+    this.dataService.getTopCoins().subscribe((res : Data)=>{
+      this.data = res.Data;console.log(this.data)
     })
   }
 
