@@ -6,15 +6,15 @@ import {LeaderboardService} from '../leaderboard.service'
 
 // TODO: Replace this with your own data model type
 export interface LeaderboardItem {
-  name: string;
+  username: string;
   id: number;
-  funds: number;
+  assets: number;
 }
 
 // TODO: replace this with real data from your application
 const EXAMPLE_DATA: LeaderboardItem[] = [
-  {id: 1, name: 'Hydrogen', funds: 500},
-  {id: 2, name: 'Helium', funds: 100935},
+  {id: 1, username: 'Hydrogen', assets: 500},
+  {id: 2, username: 'Helium', assets: 100935},
   
 ];
 
@@ -30,10 +30,12 @@ export class LeaderboardDataSource extends DataSource<LeaderboardItem> {
 
   constructor(private leaderboardService: LeaderboardService) {
     super();
-    
-    this.leaderboardService.getLeaderboard();
+    this.leaderboardService.getLeaderboard().subscribe(data => { console.log(data[0].Users); this.data = this.usersToObject(data[0].Users) })
   }
 
+  usersToObject(users) {
+    return []
+  }
   /**
    * Connect this data source to the table. The table will only update when
    * the returned stream emits new items.
@@ -80,9 +82,9 @@ export class LeaderboardDataSource extends DataSource<LeaderboardItem> {
     return data.sort((a, b) => {
       const isAsc = this.sort.direction === 'asc';
       switch (this.sort.active) {
-        case 'name': return compare(a.name, b.name, isAsc);
+        case 'username': return compare(a.username, b.username, isAsc);
         case 'id': return compare(+a.id, +b.id, isAsc);
-        case 'funds': return compare(+a.funds, +b.funds, isAsc);
+        case 'assets': return compare(+a.assets, +b.assets, isAsc);
         default: return 0;
       }
     });
