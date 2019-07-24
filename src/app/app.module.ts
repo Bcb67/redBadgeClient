@@ -23,7 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms'
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { AuthGuardService} from './auth-guard.service';
 import { AuthService } from './auth.service';
-import { PortfolioComponent } from './portfolio/portfolio.component';
+// import { PortfolioComponent } from './portfolio/portfolio.component';
 import { LandingComponent } from './landing/landing.component';
 import { TopCoinsComponent } from './top-coins/top-coins.component';
 
@@ -36,7 +36,7 @@ import { TopCoinsComponent } from './top-coins/top-coins.component';
     LoginComponent,
     SignuppComponent,
     CryptoTableComponent,
-    PortfolioComponent,
+    // PortfolioComponent,
     LandingComponent,
     TopCoinsComponent
   ],
