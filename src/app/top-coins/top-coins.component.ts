@@ -11,7 +11,7 @@ export class TopCoinsComponent implements OnInit {
   
   constructor( private dataService : TopCoinService) { }
 
-  data : Data[] = []
+  data : Data
 
 
   ngOnInit() {

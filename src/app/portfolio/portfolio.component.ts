@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserCoins } from '../models/getUserCoins'
+import { UserPortfolioService } from '../user-portfolio.service'
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 @Component({
@@ -8,6 +10,17 @@ import { Router } from '@angular/router';
 })
 
 export class PortfolioComponent implements OnInit {
+  constructor( private dataService : UserPortfolioService) { }
+
+  userCoins : UserCoins[] = []
+
+
+  ngOnInit() {
+    this.dataService.getUserPortfolio().subscribe((res : UserCoins)=>{
+    //   this.userCoins = res;console.log(this.userCoins)
+    })
+  }
+
   username: string
   coins: number
 
@@ -26,5 +39,4 @@ export class PortfolioComponent implements OnInit {
       console.log(this.coins)
     })
   }
-  
 }
