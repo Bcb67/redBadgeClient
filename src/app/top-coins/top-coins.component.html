@@ -3,8 +3,8 @@
     <div fxFlex="20">
     <mat-card class="card" *ngFor="let value of data" style="margin-top:10px;">
       <mat-card-header>
-        <mat-card-title>{{value.CoinInfo.Name}}</mat-card-title>
-        <mat-card-subtitle>{{value.CoinInfo.FullName}}
+        <mat-card-title>{{value.CoinInfo.FullName}}</mat-card-title>
+        <mat-card-subtitle>{{value.CoinInfo.Name}}
         </mat-card-subtitle>
       </mat-card-header>
       <img mat-card-image src="https://www.cryptocompare.com{{value.CoinInfo.ImageUrl}}" alt="cryptocurrency logo">
@@ -25,4 +25,5 @@
             Market Cap: {{value.DISPLAY.USD.MKTCAP}}
         </p>
       </mat-card-content>
+      <img class="graph" mat-card-image src="https://images.cryptocompare.com/sparkchart/{{value.CoinInfo.Name}}/USD/latest.png?ts=1563986400">
     </mat-card>
