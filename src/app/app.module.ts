@@ -16,7 +16,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { SignuppComponent } from './signupp/signupp.component';
 import {MatInputModule} from '@angular/material/input';
-
+import { LeaderboardComponent} from './leaderboard/leaderboard.component'
 import { CryptoTableComponent } from './crypto-table/crypto-table.component';
 import { TopCoinService } from './top-coin.service'
 import { ReactiveFormsModule } from '@angular/forms'
@@ -38,7 +38,8 @@ import { TopCoinsComponent } from './top-coins/top-coins.component';
     CryptoTableComponent,
     // PortfolioComponent,
     LandingComponent,
-    TopCoinsComponent
+    TopCoinsComponent,
+    LeaderboardComponent
   ],
   imports: [
     BrowserModule,

@@ -20,7 +20,8 @@ export class LoginComponent implements OnInit {
   }
   onSubmit() {
     let login = {user:{ username: this.loginForm.value.username, password: this.loginForm.value.password }}
-    this.authservice.loginUser(login).subscribe(data => {localStorage.setItem('token',data.sessionToken);this.goProfile(); this.portfolioService.id=data.user.id})
+    //this.authservice.loginUser(login).subscribe(data => {localStorage.setItem('token',data.sessionToken);this.goProfile(); this.portfolioService.id=data.user.id})
+    this.authservice.loginUser(login).subscribe(data => {localStorage.setItem('token',data.sessionToken);this.authservice.currentID= data.user.id;this.goProfile()})
   }
   goProfile() {
     if(localStorage.getItem('token')){
