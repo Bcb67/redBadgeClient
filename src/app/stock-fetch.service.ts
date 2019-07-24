@@ -56,7 +56,7 @@ export class DatabaseService {
     'Stellar': 'XLM',
     'Monero': 'XMR',
     'EOS': 'EOS',
-    'IOTA': 'IOT',
+    'IOTA': 'MIOTA',
     'Dash': 'DASH',
     'NEM': 'XEM',
     'TRON': 'TRX',
