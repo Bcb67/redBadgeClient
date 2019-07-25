@@ -11,6 +11,7 @@ export class LeaderboardService {
 
   constructor(private http: HttpClient) { }
   users: any
+  showTable = false
   getLeaderboard(): Observable<leaderboardModel> {
     const httpAuth = {
       headers: new HttpHeaders({
