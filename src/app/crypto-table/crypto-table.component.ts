@@ -21,6 +21,8 @@ export class CryptoTableComponent implements AfterViewInit, OnInit {
   //   this.dataSource.filter = filterValue.trim().toLowerCase();
   // }
 
+  userTotal = this.dbService.total
+
   tableForm = new FormGroup({
     btcQuan: new FormControl('')
   });
@@ -38,7 +40,7 @@ export class CryptoTableComponent implements AfterViewInit, OnInit {
 
   pricepls: any;
 
-  pricePoC(val, upVal, name) {
+  pricePoC(val, upVal, name, i) {
     if(!this.tableForm.value.btcQuan){
       this.tableForm.value.btcQuan = 0
     }
@@ -53,13 +55,22 @@ export class CryptoTableComponent implements AfterViewInit, OnInit {
     console.log('quan:', typeof(this.tableForm.value.btcQuan), this.tableForm.value.btcQuan)
     console.log('val:', typeof(val), val)
     this.pricepls =  (Number(this.tableForm.value.btcQuan) * Number(val))
-    upVal = this.pricepls
-    console.log('upval', upVal)
+    this.dbService.retVal[i].userCost = this.pricepls
+    console.log('upval', this.dbService.retVal[i].userCost)
+    this.getUserTotal()
     return upVal;
   }
 
-  updateVal(val, upVal, name) {
-    console.log('VALUE:',this.pricePoC(val, upVal, name))
+  getUserTotal() {
+    this.userTotal = 0
+    for(let item of this.dbService.retVal) {
+      this.userTotal += item.userCost
+    }
+    return this.userTotal
+  }
+
+  updateVal(val, upVal, name, i) {
+    this.pricePoC(val, upVal, name, i)
   }
 
   constructor(public dbService: DatabaseService) {}

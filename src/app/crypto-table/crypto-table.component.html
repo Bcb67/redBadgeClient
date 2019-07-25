@@ -26,8 +26,8 @@
 
     <ng-container matColumnDef="quantity">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Quantity</th>
-      <td mat-cell *matCellDef="let row">
-        <form [formGroup]="tableForm" (ngSubmit)="updateVal(row.price, row.userCost, row.name)">
+      <td mat-cell *matCellDef="let row; let i = index">
+        <form [formGroup]="tableForm" (ngSubmit)="updateVal(row.price, row.userCost, row.name, i)">
           <input type="number" formControlName='btcQuan' matInput placeholder="{{row.quantity}}" /> of {{row.name}}
           <button type="submit" mat-button>Update</button>
         </form>
@@ -38,7 +38,7 @@
     <ng-container matColumnDef="userCost">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Total per Coin</th>
       <td mat-cell *matCellDef="let row"> ${{row.userCost}} </td>
-      <td mat-footer-cell *matFooterCellDef></td>
+      <td mat-footer-cell *matFooterCellDef><b>${{userTotal}}</b></td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -48,4 +48,6 @@
 
   <mat-paginator #paginator [length]="dataSource?.data.length" [pageIndex]="0" [pageSize]="60">
   </mat-paginator>
+
+  <!-- <button (click)="getUserTotal()">Refresh Total</button> -->
 </div>
