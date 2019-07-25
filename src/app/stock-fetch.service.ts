@@ -18,9 +18,9 @@ export class DatabaseService {
   symPrice = [];
   symbols = [];
   coins = [];
-  retVal = [];
+  retVal = [{name: 'BTC', symbol: 'BTC', price: 25, quantity: 0, userCost: 0}];
   pls = true;
-
+  total: number
   firstTime = true;
 
   dailyData: any;
@@ -110,9 +110,10 @@ export class DatabaseService {
   }
 
   getObject() {
+    this.retVal = []
     if(this.pls){
       for(let i = 0; i < this.portSyms.length; i++) {
-        this.retVal.push({name: this.coins[i], symbol: this.portSyms[i], price: this.symPrice[i], quantity: 0})
+        this.retVal.push({name: this.coins[i], symbol: this.portSyms[i], price: this.symPrice[i], quantity: 0, userCost: 0})
       }
     }
     this.pls = false

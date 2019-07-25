@@ -26,6 +26,7 @@ import { AuthService } from './auth.service';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { LandingComponent } from './landing/landing.component';
 import { TopCoinsComponent } from './top-coins/top-coins.component';
+import { UserPortfolioService } from './user-portfolio.service'
 
 
 @NgModule({
@@ -58,7 +59,7 @@ import { TopCoinsComponent } from './top-coins/top-coins.component';
     MatSortModule,
     NgxSpinnerModule
   ],
-  providers: [ AuthGuardService, AuthService, TopCoinService, JwtHelperService,{provide:JWT_OPTIONS,useValue:JWT_OPTIONS}],
+  providers: [ AuthGuardService, AuthService, UserPortfolioService, TopCoinService, JwtHelperService,{provide:JWT_OPTIONS,useValue:JWT_OPTIONS}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
