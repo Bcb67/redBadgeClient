@@ -4,7 +4,7 @@ import { Observable, throwError, fromEventPattern } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { User } from './models/UserModel';
 import { Login } from './models/LoginModel';
-import { getUserCoins } from './models/getUserCoins';
+import { UserCoins } from './models/UserCoins';
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { APIURL } from 'src/environments/environment.prod';
@@ -54,13 +54,13 @@ export class AuthService {
     const token = localStorage.getItem('token');
     return !this.jwtHelper.isTokenExpired(token);
   }
-  getUserCoins(): Observable<getUserCoins> {
+  getUserCoins(): Observable<UserCoins> {
     const httpAuth = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': localStorage.getItem('token')
       })
     };
-    return this.http.get<getUserCoins>(this.portfolioURL+this.currentID, httpAuth);
+    return this.http.get<UserCoins>(this.portfolioURL+this.currentID, httpAuth);
   }
 }
