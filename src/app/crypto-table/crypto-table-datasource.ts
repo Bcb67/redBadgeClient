@@ -12,13 +12,14 @@ export interface CryptoTableItem {
   symbol: string;
   price: number;
   quantity: number;
+  userCost:number
 }
 
 // TODO: replace this with real data from your application
 const EXAMPLE_DATA: CryptoTableItem[] = [
-  {name: 'Bitcoin', symbol: 'BTC', price: 9874.346, quantity: 0},
-  {name: 'Bitcoin', symbol: 'BTC', price: 9874.346, quantity: 0},
-  {name: 'Bitcoin', symbol: 'BTC', price: 9874.346, quantity: 0},
+  {name: 'Bitcoin', symbol: 'BTC', price: 9874.346, quantity: 0, userCost:0},
+  {name: 'Bitcoin', symbol: 'BTC', price: 9874.346, quantity: 0, userCost:0},
+  {name: 'Bitcoin', symbol: 'BTC', price: 9874.346, quantity: 0, userCost:0},
 ];
 
 /**

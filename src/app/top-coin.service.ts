@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class TopCoinService {
-  url:string = "https://min-api.cryptocompare.com/data/top/totalvolfull?limit=1&tsym=USD"
+  url:string = "https://min-api.cryptocompare.com/data/top/totalvolfull?limit=10&tsym=USD"
 
   constructor(
     private http: HttpClient,
