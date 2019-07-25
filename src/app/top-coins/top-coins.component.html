@@ -1,26 +1,28 @@
+<div><h1 class= "banner">Todays Top Trading Coins</h1>
+</div>
 <div fxLayout='row' fxLayoutWrap class="cards">
 
     <div fxFlex="20">
       <ng-container *ngFor="let value of data; index as i">
-    <mat-card class="card" *ngIf="i<9" style="margin-top:10px;">
+    <mat-card class="card" *ngIf="i<10" style="margin-top:10px;">
       <mat-card-header>
-        <mat-card-title>{{value.CoinInfo.FullName}}</mat-card-title>
-        <mat-card-subtitle>{{value.CoinInfo.Name}}
+        <mat-card-title class="fullName">{{value.CoinInfo.FullName}}</mat-card-title>
+        <mat-card-subtitle class="name">{{value.CoinInfo.Name}}
         </mat-card-subtitle>
       </mat-card-header>
-      <img mat-card-image src="https://www.cryptocompare.com{{value.CoinInfo.ImageUrl}}" alt="cryptocurrency logo" />
+      <a href= "https://www.cryptocompare.com{{value.CoinInfo.Url}}" target="_blank"><img mat-card-image src="https://www.cryptocompare.com{{value.CoinInfo.ImageUrl}}" alt="cryptocurrency logo"/></a>
       <mat-card-content>
         <p>
           Current Price: {{value.DISPLAY.USD.PRICE}}
         </p>
         <p>
-            24 Hour High: {{value.DISPLAY.USD.HIGH24HOUR}}
+            24 Hr High: {{value.DISPLAY.USD.HIGH24HOUR}}
         </p>
         <p>
-            24 Hour Low: {{value.DISPLAY.USD.LOW24HOUR}}
+            24 Hr Low: {{value.DISPLAY.USD.LOW24HOUR}}
         </p>
         <p>
-           24 Hour Change: {{value.DISPLAY.USD.CHANGEPCT24HOUR}}%
+           24 Hr Change: {{value.DISPLAY.USD.CHANGEPCT24HOUR}}%
         </p>
         <p>
             Market Cap: {{value.DISPLAY.USD.MKTCAP}}
