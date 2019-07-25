@@ -1,10 +1,15 @@
 
-
+.banner{
+    text-align: center;
+    color: rgb(255, 214, 31);
+    font-family: 'Varela Round', sans-serif;
+    font-size: 4em;
+}
 .card {
     text-align: center;
     color: rgb(0, 0, 0);
     font-family: 'Varela Round', sans-serif;
-    width: 22%;
+    width: 12%;
     display: inline-block;
     border-radius: 1.5em;
     padding: .5em;
@@ -16,7 +21,7 @@
     
 }
 img {
-    width: 60%;
+    width: 30%;
     border-style: outset;
     border-width: .5em;
     border-radius: .5em;
@@ -27,4 +32,12 @@ img {
     border-width: .2em;
     width: 80%;
     background-color: rgb(214, 214, 214)
+}
+.fullName {
+    font-size: 1.1em;
+    font-weight: bolder;
+    text-align: left
+}
+.name {
+    text-align: left
 }
