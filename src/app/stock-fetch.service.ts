@@ -10,7 +10,7 @@ export class DatabaseService {
   constructor(private http: HttpClient) { }
   
   baseurl = 'https://min-api.cryptocompare.com/data/pricemulti?fsyms='
-  
+  money: number
   url: any;
   display: any;
   portSyms = [];
@@ -112,7 +112,7 @@ export class DatabaseService {
   getObject() {
     if(this.pls){
       for(let i = 0; i < this.portSyms.length; i++) {
-        this.retVal.push({name: this.coins[i], symbol: this.portSyms[i], price: this.symPrice[i], quantity: 0})
+        this.retVal.push({name: this.coins[i], symbol: this.portSyms[i], price: this.symPrice[i], quantity: 0, userCost: this.money})
       }
     }
     this.pls = false

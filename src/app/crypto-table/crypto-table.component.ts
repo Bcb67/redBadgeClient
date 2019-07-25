@@ -16,7 +16,6 @@ export class CryptoTableComponent implements AfterViewInit, OnInit {
   @ViewChild(MatTable, {static: false}) table: MatTable<CryptoTableItem>;
   dataSource: CryptoTableDataSource;
   tableInfo: any;
-
   // applyFilter(filterValue: string) {
   //   this.dataSource.filter = filterValue.trim().toLowerCase();
   // }
@@ -37,8 +36,9 @@ export class CryptoTableComponent implements AfterViewInit, OnInit {
   quansForPortf = [];
 
   pricepls: any;
-
+  tf = false
   pricePoC(val, upVal, name) {
+    this.tf = false
     if(!this.tableForm.value.btcQuan){
       this.tableForm.value.btcQuan = 0
     }
@@ -54,12 +54,15 @@ export class CryptoTableComponent implements AfterViewInit, OnInit {
     console.log('val:', typeof(val), val)
     this.pricepls =  (Number(this.tableForm.value.btcQuan) * Number(val))
     upVal = this.pricepls
-    console.log('upval', upVal)
+    this.dbService.money = upVal
+    this.tf = true
     return upVal;
   }
 
   updateVal(val, upVal, name) {
-    console.log('VALUE:',this.pricePoC(val, upVal, name))
+    // console.log('VALUE:',this.pricePoC(val, upVal, name))
+    this.table.renderRows()
+    return this.pricePoC(val, upVal, name)
   }
 
   constructor(public dbService: DatabaseService) {}

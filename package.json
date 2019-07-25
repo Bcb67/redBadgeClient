@@ -2,7 +2,7 @@
   "name": "red-badge-client",
   "version": "0.0.0",
   "engines": {
-    "node": "10.16.0"
+    "node": "10.15.3"
   },
   "scripts": {
     "ng": "ng",
