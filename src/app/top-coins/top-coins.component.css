@@ -29,7 +29,13 @@ img {
     width: 30%;
     border-style: outset;
     border-width: .5em;
-    border-radius: .5em;
+    /* border-radius: .7em; */
+    transition: 0.5s
+}
+img:hover {
+    width: 32%;
+    /* color: goldenrod */
+    
 }
 .graph {
     border-style: outset;
@@ -46,9 +52,7 @@ img {
 .name {
     text-align: left
 }
-a:link {
-    color: rgb(214, 214, 214)
-}
+
 a:visited {
     color: rgb(214, 214, 214)
 }
