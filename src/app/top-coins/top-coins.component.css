@@ -17,8 +17,13 @@
     border-style: outset;
     border-width: 1em;
     /* box-shadow: 5px 10px 18px rgb(250, 192, 2); */
-    background-color: rgb(196, 195, 195)
-    
+    background-color: rgb(196, 195, 195);
+    opacity: 0.6;
+    transition: 0.2s
+}
+.card:hover { 
+    opacity: 1;
+    width: 14%;
 }
 img {
     width: 30%;
@@ -40,4 +45,10 @@ img {
 }
 .name {
     text-align: left
+}
+a:link {
+    color: rgb(214, 214, 214)
+}
+a:visited {
+    color: rgb(214, 214, 214)
 }
