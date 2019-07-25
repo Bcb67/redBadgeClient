@@ -34,7 +34,12 @@ export class LeaderboardDataSource extends DataSource<LeaderboardItem> {
   }
 
   usersToObject(users) {
-    return []
+    let userArr = []
+    for(let user of users){
+      userArr.push({id: user.id, username: user.username, assets: (user.assets+user.funds)})
+    }
+    this.leaderboardService.showTable = true
+    return userArr
   }
   /**
    * Connect this data source to the table. The table will only update when

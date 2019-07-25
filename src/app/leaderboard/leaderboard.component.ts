@@ -21,7 +21,11 @@ export class LeaderboardComponent implements AfterViewInit, OnInit {
 
   ngOnInit() {
     this.dataSource = new LeaderboardDataSource(this.leaderboardService);
-    this.leaderboardService.getLeaderboard().subscribe(data => { console.log(data[0].Users); this.leaderboardService.users = data[0].Users })
+    this.leaderboardService.getLeaderboard().subscribe(data => {
+      console.log(data[0].Users);
+      this.leaderboardService.users = data[0].Users 
+    })
+
   }
 
   ngAfterViewInit() {
