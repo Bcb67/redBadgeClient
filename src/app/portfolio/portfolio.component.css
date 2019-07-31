@@ -11,3 +11,12 @@
 .titles{
     margin-left: 1em;
 }
+.card {
+    width: 27vw;
+    display: inline-block;
+    margin: auto 1em
+}
+
+.cards {
+    text-align: center
+}

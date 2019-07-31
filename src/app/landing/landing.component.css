@@ -1,4 +1,11 @@
 .btmLinks{
     text-align: center;
-    margin: 2em
+    margin: 2em;
+}
+
+a {
+    background-color: #EFF1F3;
+    border-radius: 20px;
+    padding: 5px;
+    margin: 1em;
 }

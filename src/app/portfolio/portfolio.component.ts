@@ -11,17 +11,11 @@ import { Router } from '@angular/router';
 
 export class PortfolioComponent implements OnInit {
   
-  userCoins : UserCoins[] = []
-  
-  
-  // ngOnInit() {
-  //   this.dataService.getUserPortfolio().subscribe((res : UserCoins)=>{
-  //     //   this.userCoins = res;console.log(this.userCoins)
-  //   })
-  // }
+  portfolio:[]
   
   username: string
-  coins: number
+  coins: []
+  quans:[]
   
   
   portGet= {}
@@ -35,8 +29,10 @@ export class PortfolioComponent implements OnInit {
       console.log("user", info)
       this.username = info[0].username
       this.coins = info[0].Portfolio.coins
+      this.quans = info[0].Portfolio.quantity
       console.log('UN', this.username)
-      console.log(this.coins)
+      console.log('coins',this.coins)
+      console.log('quans', this.quans)
     })
   }
 }
